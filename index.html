@@ -1,0 +1,4617 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amara Eze — Brand &amp; Visual Design Portfolio</title>
+    <meta
+      name="description"
+      content="An editorial portfolio showcasing brand identity, tactile packaging, and digital systems by Amara Eze."
+    />
+    <meta
+      property="og:title"
+      content="Amara Eze — Brand &amp; Visual Design Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="An editorial portfolio showcasing brand identity, tactile packaging, and digital systems by Amara Eze."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Amara Eze — Brand &amp; Visual Designer"
+    />
+    <meta
+      name="twitter:description"
+      content="Editorial brand identity, packaging craft, and digital design systems by Amara Eze."
+    />
+    <meta name="theme-color" content="#FAF7F0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts: Playfair Display + Plus Jakarta Sans + Space Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- JSON-LD Structured Data for Creative Work Portfolio -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Amara Eze",
+        "jobTitle": "Brand & Visual Designer",
+        "description": "Independent brand identity and visual systems designer focusing on cultural institutions, boutique packaging, and tactile typography.",
+        "url": "https://amaraeze.design",
+        "knowsAbout": [
+          "Brand Identity",
+          "Packaging Design",
+          "Editorial Systems",
+          "Typographic Direction"
+        ]
+      }
+    </script>
+
+    <style>
+      /* --- CSS RESET & ROOT VARIABLES --- */
+      :root {
+        --bg-cream: #faf7f0;
+        --bg-card: #ffffff;
+        --bg-subtle: #f2ede2;
+        --bg-muted: #e8e0d2;
+        --border-soft: #e5dfd3;
+        --border-medium: #d1c9bc;
+        --ink-primary: #181614;
+        --ink-secondary: #565046;
+        --ink-muted: #847c70;
+        --accent-clay: #c24e33;
+        --accent-clay-hover: #a83e26;
+        --accent-ochre: #b88628;
+        --accent-indigo: #1c2d42;
+        --accent-sage: #384a3b;
+        --font-serif: "Playfair Display", Georgia, serif;
+        --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+        --font-mono: "Space Mono", monospace;
+        --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+        --container-max: 1240px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-family: var(--font-sans);
+        background-color: var(--bg-cream);
+        color: var(--ink-primary);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      body {
+        min-height: 100vh;
+        overflow-x: hidden;
+        background-color: var(--bg-cream);
+        color: var(--ink-primary);
+        position: relative;
+      }
+
+      /* Subtle paper grain texture simulation */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 999;
+        opacity: 0.025;
+        background-image: radial-gradient(
+          var(--ink-primary) 1px,
+          transparent 1px
+        );
+        background-size: 8px 8px;
+      }
+
+      /* Typography Helpers */
+      .font-serif {
+        font-family: var(--font-serif);
+      }
+      .font-sans {
+        font-family: var(--font-sans);
+      }
+      .font-mono {
+        font-family: var(--font-mono);
+      }
+
+      /* Layout */
+      .editorial-container {
+        width: 100%;
+        max-width: var(--container-max);
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: clamp(1.25rem, 4vw, 2.5rem);
+        padding-right: clamp(1.25rem, 4vw, 2.5rem);
+      }
+
+      /* Hairline rule */
+      .hairline {
+        border: 0;
+        height: 1px;
+        background: var(--border-soft);
+        width: 100%;
+      }
+
+      /* Clean button & link transitions */
+      a,
+      button {
+        transition:
+          color 180ms var(--ease-standard),
+          background-color 180ms var(--ease-standard),
+          border-color 180ms var(--ease-standard),
+          transform 180ms var(--ease-standard);
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--accent-clay);
+        outline-offset: 3px;
+      }
+
+      /* Nav styles */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(250, 247, 240, 0.94);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-soft);
+      }
+
+      .nav-link {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--ink-secondary);
+        text-decoration: none;
+        position: relative;
+        padding: 0.25rem 0;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 1.5px;
+        background-color: var(--accent-clay);
+        transition: width 200ms var(--ease-standard);
+      }
+      .nav-link:hover {
+        color: var(--ink-primary);
+      }
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      /* Interactive project card hover dynamics */
+      .project-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-soft);
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 260ms var(--ease-standard),
+          box-shadow 260ms var(--ease-standard),
+          border-color 260ms var(--ease-standard);
+      }
+
+      .project-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--border-medium);
+        box-shadow: 0 16px 36px -12px rgba(24, 22, 20, 0.08);
+      }
+
+      .project-card .card-visual {
+        position: relative;
+        overflow: hidden;
+        background: var(--bg-subtle);
+        aspect-ratio: 4 / 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .project-card:hover .visual-inner {
+        transform: scale(1.02);
+      }
+
+      .visual-inner {
+        width: 100%;
+        height: 100%;
+        transition: transform 400ms var(--ease-standard);
+      }
+
+      /* Filter segmented controls */
+      .filter-btn {
+        background: transparent;
+        border: 1px solid var(--border-soft);
+        color: var(--ink-secondary);
+        font-size: 0.8125rem;
+        font-weight: 500;
+        padding: 0.45rem 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: var(--font-sans);
+      }
+      .filter-btn:hover {
+        border-color: var(--ink-primary);
+        color: var(--ink-primary);
+      }
+      .filter-btn.active {
+        background: var(--ink-primary);
+        color: var(--bg-cream);
+        border-color: var(--ink-primary);
+      }
+
+      /* Editorial Quote Mark */
+      .editorial-quote::before {
+        content: "“";
+        font-family: var(--font-serif);
+        font-size: 4rem;
+        line-height: 1;
+        position: absolute;
+        top: -1.25rem;
+        left: -1rem;
+        color: var(--accent-clay);
+        opacity: 0.3;
+      }
+
+      /* Accordion / Capability item */
+      .capability-row {
+        border-bottom: 1px solid var(--border-soft);
+        padding: 1.75rem 0;
+        transition: background-color 200ms ease;
+      }
+      .capability-row:first-child {
+        border-top: 1px solid var(--border-soft);
+      }
+      .capability-row:hover {
+        background-color: rgba(242, 237, 226, 0.4);
+      }
+
+      /* Timeline nodes */
+      .timeline-item {
+        position: relative;
+        padding-bottom: 2.25rem;
+        padding-left: 1.75rem;
+      }
+      .timeline-item:last-child {
+        padding-bottom: 0;
+      }
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.35rem;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: var(--accent-clay);
+      }
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        left: 3px;
+        top: 1rem;
+        bottom: 0;
+        width: 1px;
+        background-color: var(--border-soft);
+      }
+      .timeline-item:last-child::after {
+        display: none;
+      }
+
+      /* Form controls */
+      .form-input,
+      .form-textarea,
+      .form-select {
+        width: 100%;
+        background-color: #ffffff;
+        border: 1px solid var(--border-medium);
+        border-radius: 4px;
+        padding: 0.75rem 1rem;
+        font-family: var(--font-sans);
+        font-size: 0.9375rem;
+        color: var(--ink-primary);
+        transition:
+          border-color 180ms ease,
+          box-shadow 180ms ease;
+      }
+      .form-input:focus,
+      .form-textarea:focus,
+      .form-select:focus {
+        border-color: var(--accent-clay);
+        box-shadow: 0 0 0 3px rgba(194, 78, 51, 0.12);
+        outline: none;
+      }
+
+      /* Modal / Drawer */
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(24, 22, 20, 0.65);
+        backdrop-filter: blur(6px);
+        z-index: 100;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        opacity: 0;
+        transition: opacity 240ms var(--ease-standard);
+      }
+      .modal-backdrop.open {
+        display: flex;
+        opacity: 1;
+      }
+
+      .modal-window {
+        background: var(--bg-cream);
+        border: 1px solid var(--border-medium);
+        border-radius: 8px;
+        max-width: 860px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.2);
+        transform: translateY(12px) scale(0.98);
+        transition: transform 260ms var(--ease-standard);
+      }
+      .modal-backdrop.open .modal-window {
+        transform: translateY(0) scale(1);
+      }
+
+      /* Toast Notification */
+      .toast {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        background: var(--ink-primary);
+        color: var(--bg-cream);
+        padding: 0.75rem 1.25rem;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        font-family: var(--font-mono);
+        z-index: 200;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        opacity: 0;
+        transform: translateY(12px);
+        pointer-events: none;
+        transition:
+          opacity 220ms ease,
+          transform 220ms ease;
+      }
+      .toast.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Marquee banner */
+      .marquee-wrapper {
+        overflow: hidden;
+        white-space: nowrap;
+        background: var(--bg-subtle);
+        border-top: 1px solid var(--border-soft);
+        border-bottom: 1px solid var(--border-soft);
+        padding: 0.85rem 0;
+      }
+      .marquee-content {
+        display: inline-block;
+        animation: marquee 32s linear infinite;
+        font-family: var(--font-serif);
+        font-style: italic;
+        font-size: 1.05rem;
+        letter-spacing: 0.04em;
+        color: var(--ink-secondary);
+      }
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* Swatch pill for modal */
+      .color-swatch {
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 4px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        display: inline-block;
+      }
+
+      /* Responsive layout rules */
+      @media (min-width: 769px) {
+        .desktop-nav {
+          display: flex !important;
+        }
+        #mobile-toggle {
+          display: none !important;
+        }
+        .mobile-nav-panel {
+          display: none !important;
+        }
+        #clock-container {
+          display: block !important;
+        }
+        #hero-grid {
+          grid-template-columns: 1.15fr 0.95fr !important;
+        }
+        #bio-grid {
+          grid-template-columns: 1fr 1.35fr !important;
+        }
+        .timeline-grid {
+          grid-template-columns: 1fr 1.8fr !important;
+        }
+        .contact-grid {
+          grid-template-columns: 1fr 1.15fr !important;
+        }
+        .modal-content-grid {
+          grid-template-columns: 1.8fr 1.2fr !important;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .mobile-nav-panel {
+          display: none;
+        }
+        .mobile-nav-panel.open {
+          display: flex;
+        }
+        .cap-grid {
+          grid-template-columns: 48px 1fr !important;
+          gap: 0.75rem !important;
+        }
+        .cap-grid > p {
+          grid-column: 1 / -1;
+        }
+        #project-grid {
+          grid-template-columns: 1fr !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ==================== TOP BAR / NAVIGATION ==================== -->
+    <header class="site-header" role="banner">
+      <div
+        class="editorial-container"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 4.5rem;
+        "
+      >
+        <!-- Zone 1: Identity / Monogram & Name -->
+        <a
+          href="#hero"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 0.875rem;
+            text-decoration: none;
+            color: inherit;
+          "
+        >
+          <div
+            style="
+              width: 2.25rem;
+              height: 2.25rem;
+              border: 1px solid var(--ink-primary);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-family: var(--font-serif);
+              font-weight: 700;
+              font-size: 1.1rem;
+              color: var(--ink-primary);
+              background: transparent;
+            "
+          >
+            Æ
+          </div>
+          <div>
+            <span
+              class="font-serif"
+              style="
+                font-size: 1.125rem;
+                font-weight: 700;
+                letter-spacing: -0.01em;
+                display: block;
+                line-height: 1.2;
+              "
+              >Amara Eze</span
+            >
+            <span
+              class="font-mono"
+              style="
+                font-size: 0.6875rem;
+                letter-spacing: 0.06em;
+                color: var(--ink-muted);
+                text-transform: uppercase;
+              "
+              >Brand &amp; Visual Design</span
+            >
+          </div>
+        </a>
+
+        <!-- Zone 2: Navigation Links (Desktop) -->
+        <nav
+          class="desktop-nav"
+          style="display: none; align-items: center; gap: 2rem"
+          aria-label="Main Navigation"
+        >
+          <a href="#projects" class="nav-link">Selected Work</a>
+          <a href="#capabilities" class="nav-link">Discipline</a>
+          <a href="#biography" class="nav-link">Biography</a>
+          <a href="#timeline" class="nav-link">Milestones</a>
+          <a href="#contact" class="nav-link">Inquiry</a>
+        </nav>
+
+        <!-- Zone 3: Studio Status & CTA -->
+        <div style="display: flex; align-items: center; gap: 1.25rem">
+          <!-- Live Studio Clock (West Africa Time - GMT+1) -->
+          <div
+            class="font-mono"
+            style="
+              font-size: 0.75rem;
+              color: var(--ink-secondary);
+              text-align: right;
+              display: none;
+              line-height: 1.3;
+            "
+            id="clock-container"
+          >
+            <span
+              id="studio-time"
+              style="color: var(--ink-primary); font-weight: 700"
+              >14:30 WAT</span
+            >
+            <span
+              style="
+                display: block;
+                font-size: 0.6875rem;
+                color: var(--ink-muted);
+              "
+              >Lagos · Studio Active</span
+            >
+          </div>
+
+          <a
+            href="#contact"
+            style="
+              display: inline-block;
+              background-color: var(--ink-primary);
+              color: var(--bg-cream);
+              font-size: 0.8125rem;
+              font-weight: 600;
+              padding: 0.55rem 1.125rem;
+              border-radius: 4px;
+              text-decoration: none;
+              letter-spacing: 0.02em;
+            "
+          >
+            Start a Project
+          </a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button
+            id="mobile-toggle"
+            aria-label="Toggle navigation menu"
+            style="
+              display: block;
+              background: transparent;
+              border: 1px solid var(--border-medium);
+              border-radius: 4px;
+              padding: 0.45rem;
+              cursor: pointer;
+              color: var(--ink-primary);
+            "
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Navigation -->
+      <div
+        id="mobile-menu"
+        class="mobile-nav-panel"
+        style="
+          flex-direction: column;
+          background: var(--bg-cream);
+          border-top: 1px solid var(--border-soft);
+          padding: 1.25rem clamp(1.25rem, 4vw, 2.5rem);
+          gap: 1rem;
+        "
+      >
+        <a
+          href="#projects"
+          class="nav-link mobile-link"
+          style="font-size: 1rem; padding: 0.5rem 0"
+          >Selected Work</a
+        >
+        <a
+          href="#capabilities"
+          class="nav-link mobile-link"
+          style="font-size: 1rem; padding: 0.5rem 0"
+          >Discipline</a
+        >
+        <a
+          href="#biography"
+          class="nav-link mobile-link"
+          style="font-size: 1rem; padding: 0.5rem 0"
+          >Biography</a
+        >
+        <a
+          href="#timeline"
+          class="nav-link mobile-link"
+          style="font-size: 1rem; padding: 0.5rem 0"
+          >Milestones</a
+        >
+        <a
+          href="#contact"
+          class="nav-link mobile-link"
+          style="font-size: 1rem; padding: 0.5rem 0"
+          >Inquiry</a
+        >
+        <div
+          style="
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border-soft);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            color: var(--ink-muted);
+          "
+        >
+          <span>Studio: Lagos / London</span>
+          <span id="mobile-time">Active WAT</span>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- ==================== HERO SECTION ==================== -->
+      <section
+        id="hero"
+        style="
+          padding-top: clamp(3rem, 7vw, 6rem);
+          padding-bottom: clamp(3.5rem, 8vw, 6.5rem);
+        "
+      >
+        <div class="editorial-container">
+          <!-- Top Tagline & Discipline Meta -->
+          <div
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: space-between;
+              align-items: baseline;
+              gap: 1rem;
+              margin-bottom: 2rem;
+              border-bottom: 1px solid var(--border-soft);
+              padding-bottom: 1rem;
+            "
+          >
+            <div
+              class="font-mono"
+              style="
+                font-size: 0.8125rem;
+                color: var(--accent-clay);
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+              "
+            >
+              Independent Practice · Est. 2019
+            </div>
+            <div
+              class="font-mono"
+              style="font-size: 0.8125rem; color: var(--ink-muted)"
+            >
+              Brand Systems · Packaging Craft · Editorial Direction
+            </div>
+          </div>
+
+          <!-- Hero Split Grid -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr;
+              gap: clamp(2.5rem, 5vw, 4.5rem);
+              align-items: center;
+            "
+            id="hero-grid"
+          >
+            <!-- Left: Hero Headline & Manifesto -->
+            <div>
+              <h1
+                class="font-serif"
+                style="
+                  font-size: clamp(2.5rem, 5.2vw, 4.25rem);
+                  font-weight: 700;
+                  line-height: 1.1;
+                  letter-spacing: -0.02em;
+                  margin-bottom: 1.75rem;
+                  text-wrap: balance;
+                "
+              >
+                Designing tactile brand identities that endure beyond fleeting
+                digital cycles.
+              </h1>
+
+              <p
+                style="
+                  font-size: clamp(1.0625rem, 1.8vw, 1.25rem);
+                  color: var(--ink-secondary);
+                  line-height: 1.65;
+                  max-width: 58ch;
+                  margin-bottom: 2.25rem;
+                "
+              >
+                Rooted between the kinetic pulse of Lagos and the quiet rigor of
+                British editorial craft, I shape expressive visual worlds for
+                cultural institutes, progressive founders, and independent
+                makers.
+              </p>
+
+              <!-- Action Row -->
+              <div
+                style="
+                  display: flex;
+                  flex-wrap: wrap;
+                  align-items: center;
+                  gap: 1.25rem;
+                "
+              >
+                <a
+                  href="#projects"
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    background-color: var(--accent-clay);
+                    color: #ffffff;
+                    font-weight: 600;
+                    font-size: 0.9375rem;
+                    padding: 0.8rem 1.6rem;
+                    border-radius: 4px;
+                    text-decoration: none;
+                  "
+                >
+                  <span>Explore Selected Work</span>
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M7 17l9.2-9.2M17 17V7H7" />
+                  </svg>
+                </a>
+                <a
+                  href="#biography"
+                  style="
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    background-color: transparent;
+                    border: 1px solid var(--border-medium);
+                    color: var(--ink-primary);
+                    font-weight: 500;
+                    font-size: 0.9375rem;
+                    padding: 0.8rem 1.4rem;
+                    border-radius: 4px;
+                    text-decoration: none;
+                  "
+                >
+                  Design Philosophy
+                </a>
+              </div>
+            </div>
+
+            <!-- Right: Art-Directed Editorial Composition -->
+            <div style="position: relative">
+              <div
+                style="
+                  background: var(--bg-subtle);
+                  border: 1px solid var(--border-medium);
+                  border-radius: 12px;
+                  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+                  position: relative;
+                  overflow: hidden;
+                  box-shadow: 0 20px 48px -12px rgba(24, 22, 20, 0.08);
+                "
+              >
+                <!-- Composition Header Specimen -->
+                <div
+                  style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    margin-bottom: 2rem;
+                  "
+                >
+                  <div>
+                    <span
+                      class="font-mono"
+                      style="
+                        font-size: 0.6875rem;
+                        color: var(--ink-muted);
+                        text-transform: uppercase;
+                        letter-spacing: 0.1em;
+                        display: block;
+                      "
+                      >Archive Folio No. 04</span
+                    >
+                    <span
+                      class="font-serif"
+                      style="
+                        font-size: 1.25rem;
+                        font-style: italic;
+                        color: var(--ink-primary);
+                      "
+                      >Tactile Modernism</span
+                    >
+                  </div>
+                  <div
+                    style="
+                      width: 2.75rem;
+                      height: 2.75rem;
+                      border-radius: 50%;
+                      border: 1px solid var(--accent-clay);
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      color: var(--accent-clay);
+                      font-family: var(--font-mono);
+                      font-size: 0.75rem;
+                      font-weight: 700;
+                    "
+                  >
+                    WAT
+                  </div>
+                </div>
+
+                <!-- Central Visual Artwork: Layered Editorial Monogram & Geometric Blueprint -->
+                <div
+                  style="
+                    background: #ffffff;
+                    border: 1px solid var(--border-soft);
+                    border-radius: 8px;
+                    padding: 2rem 1.5rem;
+                    position: relative;
+                  "
+                >
+                  <svg
+                    viewBox="0 0 400 240"
+                    width="100%"
+                    height="auto"
+                    style="display: block; max-height: 240px"
+                    aria-label="Abstract typographic composition for Amara Eze studio"
+                  >
+                    <!-- Subtle drafting gridlines -->
+                    <defs>
+                      <pattern
+                        id="grid"
+                        width="20"
+                        height="20"
+                        patternUnits="userSpaceOnUse"
+                      >
+                        <path
+                          d="M 20 0 L 0 0 0 20"
+                          fill="none"
+                          stroke="#F0EDE4"
+                          stroke-width="0.8"
+                        />
+                      </pattern>
+                      <linearGradient
+                        id="clayGrad"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                      >
+                        <stop offset="0%" stop-color="#C24E33" />
+                        <stop offset="100%" stop-color="#8F2F19" />
+                      </linearGradient>
+                      <linearGradient
+                        id="goldGrad"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                      >
+                        <stop offset="0%" stop-color="#C89B3C" />
+                        <stop offset="100%" stop-color="#E2C178" />
+                      </linearGradient>
+                    </defs>
+                    <rect width="400" height="240" fill="url(#grid)" />
+
+                    <!-- Architectural framing circle & arc -->
+                    <circle
+                      cx="200"
+                      cy="120"
+                      r="88"
+                      fill="none"
+                      stroke="#E5DFD3"
+                      stroke-width="1.2"
+                      stroke-dasharray="3,3"
+                    />
+                    <circle
+                      cx="200"
+                      cy="120"
+                      r="70"
+                      fill="none"
+                      stroke="#C24E33"
+                      stroke-width="1"
+                      opacity="0.4"
+                    />
+
+                    <!-- Monogram Seal & Foil shapes -->
+                    <rect
+                      x="60"
+                      y="30"
+                      width="80"
+                      height="110"
+                      rx="4"
+                      fill="#FAF7F0"
+                      stroke="#D1C9BC"
+                      stroke-width="1"
+                    />
+                    <rect x="75" y="45" width="50" height="4" fill="#C24E33" />
+                    <rect x="75" y="55" width="32" height="3" fill="#181614" />
+                    <rect x="75" y="63" width="42" height="2" fill="#847C70" />
+                    <circle cx="100" cy="100" r="16" fill="url(#clayGrad)" />
+                    <text
+                      x="100"
+                      y="105"
+                      text-anchor="middle"
+                      fill="#FAF7F0"
+                      font-family="'Playfair Display', serif"
+                      font-weight="700"
+                      font-size="14"
+                    >
+                      Æ
+                    </text>
+
+                    <!-- Big Serif Typography Overlay -->
+                    <text
+                      x="210"
+                      y="105"
+                      fill="#181614"
+                      font-family="'Playfair Display', serif"
+                      font-size="34"
+                      font-weight="700"
+                      letter-spacing="-1"
+                    >
+                      Form,
+                    </text>
+                    <text
+                      x="210"
+                      y="145"
+                      fill="#C24E33"
+                      font-family="'Playfair Display', serif"
+                      font-style="italic"
+                      font-size="34"
+                      font-weight="400"
+                    >
+                      Texture
+                    </text>
+                    <text
+                      x="210"
+                      y="185"
+                      fill="#181614"
+                      font-family="'Playfair Display', serif"
+                      font-size="34"
+                      font-weight="700"
+                      letter-spacing="-1"
+                    >
+                      &amp; Origin.
+                    </text>
+
+                    <!-- Technical coordinate mark -->
+                    <text
+                      x="20"
+                      y="225"
+                      fill="#847C70"
+                      font-family="'Space Mono', monospace"
+                      font-size="8"
+                    >
+                      6°27′11″N 3°23′45″E · LAGOS / LONDON
+                    </text>
+                    <text
+                      x="380"
+                      y="225"
+                      text-anchor="end"
+                      fill="#847C70"
+                      font-family="'Space Mono', monospace"
+                      font-size="8"
+                    >
+                      ISSUE 26 · VERIFIED
+                    </text>
+                  </svg>
+                </div>
+
+                <!-- Composition Footer Callout -->
+                <div
+                  style="
+                    margin-top: 1.5rem;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 0.8125rem;
+                  "
+                >
+                  <span style="color: var(--ink-secondary)"
+                    >Brand Architecture &amp; Print Typography</span
+                  >
+                  <span
+                    class="font-mono"
+                    style="color: var(--accent-clay); font-weight: 700"
+                    >2019 — 2026</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quantitative Rigor & Studio Metrics Bar (Clean, Unboxed) -->
+          <div
+            style="
+              margin-top: clamp(3rem, 6vw, 4.5rem);
+              padding-top: 2rem;
+              border-top: 1px solid var(--border-soft);
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+              gap: 2rem;
+            "
+          >
+            <div>
+              <div
+                class="font-serif"
+                style="
+                  font-size: 2.25rem;
+                  font-weight: 700;
+                  color: var(--ink-primary);
+                  line-height: 1.1;
+                "
+              >
+                8+ Years
+              </div>
+              <div
+                style="
+                  font-size: 0.875rem;
+                  color: var(--ink-secondary);
+                  margin-top: 0.25rem;
+                "
+              >
+                Directorial brand leadership
+              </div>
+            </div>
+            <div>
+              <div
+                class="font-serif"
+                style="
+                  font-size: 2.25rem;
+                  font-weight: 700;
+                  color: var(--accent-clay);
+                  line-height: 1.1;
+                "
+              >
+                34 Systems
+              </div>
+              <div
+                style="
+                  font-size: 0.875rem;
+                  color: var(--ink-secondary);
+                  margin-top: 0.25rem;
+                "
+              >
+                Identity projects deployed worldwide
+              </div>
+            </div>
+            <div>
+              <div
+                class="font-serif"
+                style="
+                  font-size: 2.25rem;
+                  font-weight: 700;
+                  color: var(--ink-primary);
+                  line-height: 1.1;
+                "
+              >
+                02 Selections
+              </div>
+              <div
+                style="
+                  font-size: 0.875rem;
+                  color: var(--ink-secondary);
+                  margin-top: 0.25rem;
+                "
+              >
+                Tokyo TDC typography annuals
+              </div>
+            </div>
+            <div>
+              <div
+                class="font-serif"
+                style="
+                  font-size: 2.25rem;
+                  font-weight: 700;
+                  color: var(--ink-primary);
+                  line-height: 1.1;
+                "
+              >
+                100% Tactile
+              </div>
+              <div
+                style="
+                  font-size: 0.875rem;
+                  color: var(--ink-secondary);
+                  margin-top: 0.25rem;
+                "
+              >
+                Material-first physical &amp; digital craft
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== MARQUEE DIVIDER ==================== -->
+      <div class="marquee-wrapper" aria-hidden="true">
+        <div class="marquee-content">
+          Brand Architecture &nbsp;·&nbsp; Bespoke Typographic Systems
+          &nbsp;·&nbsp; Blind Deboss &amp; Foil Craft &nbsp;·&nbsp; Editorial
+          Monograph Direction &nbsp;·&nbsp; Sustainable Packaging Engineering
+          &nbsp;·&nbsp; Cultural Institution Identity &nbsp;·&nbsp; Brand
+          Architecture &nbsp;·&nbsp; Bespoke Typographic Systems &nbsp;·&nbsp;
+          Blind Deboss &amp; Foil Craft &nbsp;·&nbsp; Editorial Monograph
+          Direction &nbsp;·&nbsp; Sustainable Packaging Engineering
+          &nbsp;·&nbsp; Cultural Institution Identity &nbsp;·&nbsp;
+        </div>
+      </div>
+
+      <!-- ==================== SELECTED PROJECTS GALLERY ==================== -->
+      <section
+        id="projects"
+        style="
+          padding-top: clamp(4rem, 8vw, 7rem);
+          padding-bottom: clamp(4rem, 8vw, 7rem);
+        "
+      >
+        <div class="editorial-container">
+          <!-- Section Title & Category Filter Bar -->
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              md: flex-row;
+              justify-content: space-between;
+              align-items: flex-start;
+              gap: 1.5rem;
+              margin-bottom: 3rem;
+            "
+          >
+            <div>
+              <div
+                class="font-mono"
+                style="
+                  font-size: 0.8125rem;
+                  color: var(--accent-clay);
+                  text-transform: uppercase;
+                  letter-spacing: 0.08em;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Curated Works · 2023 — 2026
+              </div>
+              <h2
+                class="font-serif"
+                style="
+                  font-size: clamp(2rem, 3.5vw, 2.75rem);
+                  font-weight: 700;
+                  letter-spacing: -0.01em;
+                "
+              >
+                Selected Projects
+              </h2>
+            </div>
+
+            <!-- Interactive Category Filter Buttons -->
+            <div
+              style="display: flex; flex-wrap: wrap; gap: 0.5rem"
+              role="tablist"
+              aria-label="Filter portfolio projects"
+            >
+              <button
+                class="filter-btn active"
+                data-filter="all"
+                role="tab"
+                aria-selected="true"
+              >
+                All Works (6)
+              </button>
+              <button
+                class="filter-btn"
+                data-filter="brand"
+                role="tab"
+                aria-selected="false"
+              >
+                Brand Identity
+              </button>
+              <button
+                class="filter-btn"
+                data-filter="packaging"
+                role="tab"
+                aria-selected="false"
+              >
+                Packaging &amp; Print
+              </button>
+              <button
+                class="filter-btn"
+                data-filter="editorial"
+                role="tab"
+                aria-selected="false"
+              >
+                Editorial &amp; Digital
+              </button>
+            </div>
+          </div>
+
+          <!-- Project Gallery Grid -->
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+              gap: clamp(1.5rem, 3vw, 2.5rem);
+            "
+            id="project-grid"
+          >
+            <!-- PROJECT 1: Oasis & Ochre -->
+            <article
+              class="project-card"
+              data-category="brand packaging"
+              data-id="oasis-ochre"
+              tabindex="0"
+              role="button"
+              aria-label="View case study for Oasis & Ochre"
+            >
+              <div class="card-visual">
+                <div class="visual-inner">
+                  <svg
+                    viewBox="0 0 400 300"
+                    width="100%"
+                    height="100%"
+                    style="display: block"
+                  >
+                    <rect width="400" height="300" fill="#EFE8DA" />
+                    <!-- Botanical Apothecary Flacon Graphic Composition -->
+                    <circle cx="200" cy="150" r="110" fill="#E6DECE" />
+                    <!-- Bottle silhouette -->
+                    <rect
+                      x="150"
+                      y="80"
+                      width="100"
+                      height="150"
+                      rx="10"
+                      fill="#B85838"
+                    />
+                    <rect
+                      x="180"
+                      y="55"
+                      width="40"
+                      height="25"
+                      fill="#1C1814"
+                    />
+                    <rect
+                      x="188"
+                      y="42"
+                      width="24"
+                      height="13"
+                      fill="#C89B3C"
+                    />
+                    <!-- Label with debossed typographic look -->
+                    <rect
+                      x="162"
+                      y="115"
+                      width="76"
+                      height="85"
+                      fill="#FAF7F0"
+                    />
+                    <line
+                      x1="172"
+                      y1="130"
+                      x2="228"
+                      y2="130"
+                      stroke="#1C1814"
+                      stroke-width="1.5"
+                    />
+                    <text
+                      x="200"
+                      y="150"
+                      text-anchor="middle"
+                      fill="#1C1814"
+                      font-family="'Playfair Display', serif"
+                      font-weight="700"
+                      font-size="11"
+                    >
+                      OASIS
+                    </text>
+                    <text
+                      x="200"
+                      y="162"
+                      text-anchor="middle"
+                      fill="#B85838"
+                      font-family="'Space Mono', monospace"
+                      font-size="7"
+                    >
+                      &amp; OCHRE
+                    </text>
+                    <text
+                      x="200"
+                      y="180"
+                      text-anchor="middle"
+                      fill="#847C70"
+                      font-family="'Plus Jakarta Sans', sans-serif"
+                      font-size="6"
+                    >
+                      EXTRAIT DE PARFUM · 50ML
+                    </text>
+                    <!-- Botanical organic branch accent -->
+                    <path
+                      d="M 60 220 Q 110 170 140 180 Q 120 230 60 220 Z"
+                      fill="#384A3B"
+                      opacity="0.3"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div
+                style="
+                  padding: 1.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 0.5rem;
+                    font-size: 0.75rem;
+                    color: var(--ink-muted);
+                    font-family: var(--font-mono);
+                  "
+                >
+                  <span>Grasse &amp; Marrakech</span>
+                  <span>2025</span>
+                </div>
+                <h3
+                  class="font-serif"
+                  style="
+                    font-size: 1.35rem;
+                    font-weight: 700;
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  Oasis &amp; Ochre
+                </h3>
+                <p
+                  style="
+                    font-size: 0.875rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.55;
+                    margin-bottom: 1.25rem;
+                    flex-grow: 1;
+                  "
+                >
+                  Tactile identity and amber glass packaging for a luxury desert
+                  apothecary. Custom debossed cotton paper label system and
+                  bespoke monogram seal.
+                </p>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    border-top: 1px solid var(--border-soft);
+                    padding-top: 0.875rem;
+                  "
+                >
+                  <span
+                    style="
+                      font-size: 0.8125rem;
+                      color: var(--accent-clay);
+                      font-weight: 600;
+                    "
+                    >Brand Identity · Packaging</span
+                  >
+                  <span
+                    style="
+                      font-size: 0.8125rem;
+                      color: var(--ink-primary);
+                      font-weight: 600;
+                      display: flex;
+                      align-items: center;
+                      gap: 0.25rem;
+                    "
+                  >
+                    Case Study →
+                  </span>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT 2: Kanoa Studio -->
+            <article
+              class="project-card"
+              data-category="brand editorial"
+              data-id="kanoa-studio"
+              tabindex="0"
+              role="button"
+              aria-label="View case study for Kanoa Studio"
+            >
+              <div class="card-visual">
+                <div class="visual-inner">
+                  <svg
+                    viewBox="0 0 400 300"
+                    width="100%"
+                    height="100%"
+                    style="display: block"
+                  >
+                    <rect width="400" height="300" fill="#E4E8E2" />
+                    <!-- Architectural Blueprint & Pavilion Composition -->
+                    <g
+                      stroke="#384A3B"
+                      stroke-width="0.75"
+                      fill="none"
+                      opacity="0.6"
+                    >
+                      <line x1="40" y1="40" x2="360" y2="40" />
+                      <line x1="40" y1="150" x2="360" y2="150" />
+                      <line x1="40" y1="260" x2="360" y2="260" />
+                      <line x1="100" y1="20" x2="100" y2="280" />
+                      <line x1="200" y1="20" x2="200" y2="280" />
+                      <line x1="300" y1="20" x2="300" y2="280" />
+                    </g>
+                    <!-- Pavillion Block Diagram -->
+                    <rect
+                      x="110"
+                      y="80"
+                      width="180"
+                      height="140"
+                      fill="#FAF7F0"
+                      stroke="#384A3B"
+                      stroke-width="1.5"
+                    />
+                    <rect
+                      x="135"
+                      y="105"
+                      width="60"
+                      height="90"
+                      fill="#384A3B"
+                    />
+                    <rect
+                      x="210"
+                      y="125"
+                      width="55"
+                      height="40"
+                      fill="#C24E33"
+                      opacity="0.85"
+                    />
+                    <text
+                      x="140"
+                      y="240"
+                      fill="#384A3B"
+                      font-family="'Space Mono', monospace"
+                      font-size="9"
+                      letter-spacing="1"
+                    >
+                      RAMMED EARTH PRACTICE
+                    </text>
+                    <text
+                      x="200"
+                      y="65"
+                      text-anchor="middle"
+                      fill="#1C1814"
+                      font-family="'Playfair Display', serif"
+                      font-weight="700"
+                      font-size="16"
+                    >
+                      KANOA
+                    </text>
+                  </svg>
+                </div>
+              </div>
+              <div
+                style="
+                  padding: 1.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 0.5rem;
+                    font-size: 0.75rem;
+                    color: var(--ink-muted);
+                    font-family: var(--font-mono);
+                  "
+                >
+                  <span>Nairobi &amp; Copenhagen</span>
+                  <span>2025</span>
+                </div>
+                <h3
+                  class="font-serif"
+                  style="
+                    font-size: 1.35rem;
+                    font-weight: 700;
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  Kanoa Studio
+                </h3>
+                <p
+                  style="
+                    font-size: 0.875rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.55;
+                    margin-bottom: 1.25rem;
+                    flex-grow: 1;
+                  "
+                >
+                  Spatial identity system, environmental signage guidelines, and
+                  monograph catalog for a sustainable architectural practice
+                  focused on rammed-earth structures.
+                </p>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    border-top: 1px solid var(--border-soft);
+                    padding-top: 0.875rem;
+                  "
+                >
+                  <span
+                    style="
+                      font-size: 0.8125rem;
+                      color: var(--accent-sage);
+                      font-weight: 600;
+                    "
+                    >Spatial Identity · Signage</span
+                  >
+                  <span
+                    style="
+                      font-size: 0.8125rem;
+                      color: var(--ink-primary);
+                      font-weight: 600;
+                      display: flex;
+                      align-items: center;
+                      gap: 0.25rem;
+                    "
+                  >
+                    Case Study →
+                  </span>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT 3: Solarium Press -->
+            <article
+              class="project-card"
+              data-category="editorial"
+              data-id="solarium-press"
+              tabindex="0"
+              role="button"
+              aria-label="View case study for Solarium Press"
+            >
+              <div class="card-visual">
+                <div class="visual-inner">
+                  <svg
+                    viewBox="0 0 400 300"
+                    width="100%"
+                    height="100%"
+                    style="display: block"
+                  >
+                    <rect width="400" height="300" fill="#F4EDE0" />
+                    <!-- Monograph Book Spine & Foil Typography -->
+                    <rect
+                      x="90"
+                      y="45"
+                      width="220"
+                      height="210"
+                      rx="3"
+                      fill="#1C2D42"
+                    />
+                    <!-- Book spine highlight line -->
+                    <line
+                      x1="110"
+                      y1="45"
+                      x2="110"
+                      y2="255"
+                      stroke="#2B3D55"
+                      stroke-width="2"
+                    />
+                    <!-- Foil stamped emblem -->
+                    <circle
+                      cx="205"
+                      cy="120"
+                      r="38"
+                      fill="none"
+                      stroke="#D1A748"
+                      stroke-width="1.5"
+                    />
+                    <polygon
+                      points="205,95 212,112 230,120 212,128 205,145 198,128 180,120 198,112"
+                      fill="#D1A748"
+                    />
+                    <text
+                      x="205"
+                      y="180"
+                      text-anchor="middle"
+                      fill="#FAF7F0"
+                      font-family="'Playfair Display', serif"
+                      font-weight="600"
+                      font-size="14"
+                      letter-spacing="2"
+                    >
+                      SOLARIUM
+                    </text>
+                    <text
+                      x="205"
+                      y="196"
+                      text-anchor="middle"
+                      fill="#D1A748"
+                      font-family="'Space Mono', monospace"
+                      font-size="7"
+                      letter-spacing="1"
+                    >
+                      TYPOGRAPHIC QUARTERLY
+                    </text>
+                  </svg>
+                </div>
+              </div>
+              <div
+                style="
+                  padding: 1.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 0.5rem;
+                    font-size: 0.75rem;
+                    color: var(--ink-muted);
+                    font-family: var(--font-mono);
+                  "
+                >
+                  <span>London &amp; Tokyo</span>
+                  <span>2024</span>
+                </div>
+                <h3
+                  class="font-serif"
+                  style="
+                    font-size: 1.35rem;
+                    font-weight: 700;
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  Solarium Press
+                </h3>
+                <p
+                  style="
+                    font-size: 0.875rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.55;
+                    margin-bottom: 1.25rem;
+                    flex-grow: 1;
+                  "
+                >
+                  Complete visual identity, bilingual typographic layout grid,
+                  and hot-foil slipcase series for an independent art book
+                  publisher. Tokyo TDC Annual Selection.
+                </p>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    border-top: 1px solid var(--border-soft);
+                    padding-top: 0.875rem;
+                  "
+                >
+                  <span
+                    style="
+                      font-size: 0.8125rem;
+                      color: var(--accent-indigo);
+                      font-weight: 600;
+                    "
+                    >Editorial · Book Publishing</span
+                  >
+                  <span
+                    style="
+                      font-size: 0.8125rem;
+                      color: var(--ink-primary);
+                      font-weight: 600;
+                      display: flex;
+                      align-items: center;
+                      gap: 0.25rem;
+                    "
+                  >
+                    Case Study →
+                  </span>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT 4: Nila Artisanal Textiles -->
+            <article
+              class="project-card"
+              data-category="packaging brand"
+              data-id="nila-textiles"
+              tabindex="0"
+              role="button"
+              aria-label="View case study for Nila Textiles"
+            >
+              <div class="card-visual">
+                <div class="visual-inner">
+                  <svg
+                    viewBox="0 0 400 300"
+                    width="100%"
+                    height="100%"
+                    style="display: block"
+                  >
+                    <defs>
+                      <linearGradient
+                        id="indigoGrad"
+                        x1="0%"
+                        y1="0%"
+                        x2="0%"
+                        y2="100%"
+                      >
+                        <stop offset="0%" stop-color="#1E3250" />
+                        <stop offset="100%" stop-color="#344E75" />
+                      </linearGradient>
+                    </defs>
+                    <rect width="400" height="300" fill="#E8EDF2" />
+                    <!-- Indigo Dip Dye Swatch Mockup -->
+                    <rect
+                      x="70"
+                      y="50"
+                      width="260"
+                      height="200"
+                      rx="4"
+                      fill="#FFFFFF"
+                      stroke="#CBD5E1"
+                      stroke-width="1"
+                    />
+                    <rect
+                      x="70"
+                      y="130"
+                      width="260"
+                      height="120"
+                      fill="url(#indigoGrad)"
+                    />
+                    <!-- Woven thread lines -->
+                    <g
+                      stroke="#CBD5E1"
+                      stroke-width="0.5"
+                      stroke-dasharray="2,2"
+                    >
+                      <line x1="70" y1="80" x2="330" y2="80" />
+                      <line x1="70" y1="105" x2="330" y2="105" />
+                    </g>
+                    <!-- Craft Label Tag -->
+                    <rect
+                      x="140"
+                      y="90"
+                      width="120"
+                      height="80"
+                      fill="#FAF7F0"
+                      stroke="#A0AAB8"
+                      stroke-width="0.8"
+                    />
+                    <circle cx="200" cy="102" r="3" fill="#1E3250" />
+                    <text
+                      x="200"
+                      y="125"
+                      text-anchor="middle"
+                      fill="#1E3250"
+                      font-family="'Playfair Display', serif"
+                      font-weight="700"
+                      font-size="12"
+                    >
+                      N I L A
+                    </text>
+                    <text
+                      x="200"
+                      y="140"
+                      text-anchor="middle"
+                      fill="#64748B"
+                      font-family="'Space Mono', monospace"
+                      font-size="6"
+                    >
+                      HERITAGE INDIGO CRAFT
+                    </text>
+                    <text
+                      x="200"
+                      y="155"
+                      text-anchor="middle"
+                      fill="#847C70"
+                      font-family="'Plus Jakarta Sans', sans-serif"
+                      font-size="6"
+                    >
+                      HANDWOVEN · 100% ORGANIC
+                    </text>
+                  </svg>
+                </div>
+              </div>
+              <div
+                style="
+                  padding: 1.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 0.5rem;
+                    font-size: 0.75rem;
+                    color: var(--ink-muted);
+                    font-family: var(--font-mono);
+                  "
+                >
+                  <span>Abeokuta &amp; Kyoto</span>
+                  <span>2024</span>
+                </div>
+                <h3
+                  class="font-serif"
+                  style="
+                    font-size: 1.35rem;
+                    font-weight: 700;
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  Nila Artisanal Textiles
+                </h3>
+                <p
+                  style="
+                    font-size: 0.875rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.55;
+                    margin-bottom: 1.25rem;
+                    flex-grow: 1;
+                  "
+                >
+                  Visual identity, plantable seed-paper hangtags, and organic
+                  cotton woven garment labels for a collective preserving
+                  indigenous indigo resistance dyeing.
+                </p>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    border-top: 1px solid var(--border-soft);
+                    padding-top: 0.875rem;
+                  "
+                >
+                  <span
+                    style="
+                      font-size: 0.8125rem;
+                      color: var(--accent-indigo);
+                      font-weight: 600;
+                    "
+                    >Textile Branding · Packaging</span
+                  >
+                  <span
+                    style="
+                      font-size: 0.8125rem;
+                      color: var(--ink-primary);
+                      font-weight: 600;
+                      display: flex;
+                      align-items: center;
+                      gap: 0.25rem;
+                    "
+                  >
+                    Case Study →
+                  </span>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT 5: Kora Sound Residency -->
+            <article
+              class="project-card"
+              data-category="brand editorial"
+              data-id="kora-sound"
+              tabindex="0"
+              role="button"
+              aria-label="View case study for Kora Sound Residency"
+            >
+              <div class="card-visual">
+                <div class="visual-inner">
+                  <svg
+                    viewBox="0 0 400 300"
+                    width="100%"
+                    height="100%"
+                    style="display: block"
+                  >
+                    <rect width="400" height="300" fill="#141416" />
+                    <!-- Minimalist Vinyl Record & Sonic Frequency Lines -->
+                    <circle
+                      cx="200"
+                      cy="150"
+                      r="105"
+                      fill="#1F1F24"
+                      stroke="#2D2D35"
+                      stroke-width="1.5"
+                    />
+                    <circle
+                      cx="200"
+                      cy="150"
+                      r="85"
+                      fill="none"
+                      stroke="#2D2D35"
+                      stroke-width="0.8"
+                    />
+                    <circle
+                      cx="200"
+                      cy="150"
+                      r="65"
+                      fill="none"
+                      stroke="#2D2D35"
+                      stroke-width="0.8"
+                    />
+                    <circle
+                      cx="200"
+                      cy="150"
+                      r="45"
+                      fill="none"
+                      stroke="#2D2D35"
+                      stroke-width="0.8"
+                    />
+                    <!-- Vinyl Center Label in Terracotta Accent -->
+                    <circle cx="200" cy="150" r="32" fill="#C24E33" />
+                    <circle cx="200" cy="150" r="5" fill="#141416" />
+                    <text
+                      x="200"
+                      y="146"
+                      text-anchor="middle"
+                      fill="#FAF7F0"
+                      font-family="'Space Mono', monospace"
+                      font-size="7"
+                      font-weight="700"
+                    >
+                      KORA
+                    </text>
+                    <text
+                      x="200"
+                      y="160"
+                      text-anchor="middle"
+                      fill="#FAF7F0"
+                      font-family="'Space Mono', monospace"
+                      font-size="5"
+                    >
+                      33⅓ RPM
+                    </text>
+                    <!-- Typographic Sleeve Notes -->
+                    <text
+                      x="35"
+                      y="45"
+                      fill="#FAF7F0"
+                      font-family="'Playfair Display', serif"
+                      font-size="14"
+                      font-weight="700"
+                    >
+                      KORA SOUND
+                    </text>
+                    <text
+                      x="35"
+                      y="60"
+                      fill="#888892"
+                      font-family="'Space Mono', monospace"
+                      font-size="7"
+                    >
+                      EXPERIMENTAL SONIC ARCHIVE · VOL. II
+                    </text>
+                  </svg>
+                </div>
+              </div>
+              <div
+                style="
+                  padding: 1.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 0.5rem;
+                    font-size: 0.75rem;
+                    color: var(--ink-muted);
+                    font-family: var(--font-mono);
+                  "
+                >
+                  <span>Berlin &amp; Lagos</span>
+                  <span>2023</span>
+                </div>
+                <h3
+                  class="font-serif"
+                  style="
+                    font-size: 1.35rem;
+                    font-weight: 700;
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  Kora Sound Residency
+                </h3>
+                <p
+                  style="
+                    font-size: 0.875rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.55;
+                    margin-bottom: 1.25rem;
+                    flex-grow: 1;
+                  "
+                >
+                  Dynamic acoustic waveform logomark, heavyweight vinyl record
+                  sleeves, and an interactive digital listening archive for an
+                  experimental sonic research institute.
+                </p>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    border-top: 1px solid var(--border-soft);
+                    padding-top: 0.875rem;
+                  "
+                >
+                  <span
+                    style="
+                      font-size: 0.8125rem;
+                      color: var(--accent-clay);
+                      font-weight: 600;
+                    "
+                    >Sound Archive · Vinyl Sleeve</span
+                  >
+                  <span
+                    style="
+                      font-size: 0.8125rem;
+                      color: var(--ink-primary);
+                      font-weight: 600;
+                      display: flex;
+                      align-items: center;
+                      gap: 0.25rem;
+                    "
+                  >
+                    Case Study →
+                  </span>
+                </div>
+              </div>
+            </article>
+
+            <!-- PROJECT 6: Atelier Vesper -->
+            <article
+              class="project-card"
+              data-category="brand packaging"
+              data-id="atelier-vesper"
+              tabindex="0"
+              role="button"
+              aria-label="View case study for Atelier Vesper"
+            >
+              <div class="card-visual">
+                <div class="visual-inner">
+                  <svg
+                    viewBox="0 0 400 300"
+                    width="100%"
+                    height="100%"
+                    style="display: block"
+                  >
+                    <rect width="400" height="300" fill="#ECEBE7" />
+                    <!-- Horological Precision Dial & Unboxing Box Diagram -->
+                    <circle
+                      cx="200"
+                      cy="150"
+                      r="95"
+                      fill="#FAF9F6"
+                      stroke="#1C1814"
+                      stroke-width="1.2"
+                    />
+                    <!-- Minute indices around perimeter -->
+                    <g stroke="#847C70" stroke-width="1">
+                      <line x1="200" y1="60" x2="200" y2="68" />
+                      <line x1="200" y1="240" x2="200" y2="232" />
+                      <line x1="110" y1="150" x2="118" y2="150" />
+                      <line x1="290" y1="150" x2="282" y2="150" />
+                    </g>
+                    <!-- Fine Watch Hands -->
+                    <line
+                      x1="200"
+                      y1="150"
+                      x2="245"
+                      y2="120"
+                      stroke="#1C1814"
+                      stroke-width="1.8"
+                      stroke-linecap="round"
+                    />
+                    <line
+                      x1="200"
+                      y1="150"
+                      x2="170"
+                      y2="95"
+                      stroke="#C24E33"
+                      stroke-width="1.2"
+                      stroke-linecap="round"
+                    />
+                    <circle cx="200" cy="150" r="3.5" fill="#1C1814" />
+                    <text
+                      x="200"
+                      y="115"
+                      text-anchor="middle"
+                      fill="#1C1814"
+                      font-family="'Playfair Display', serif"
+                      font-weight="700"
+                      font-size="11"
+                      letter-spacing="1.5"
+                    >
+                      VESPER
+                    </text>
+                    <text
+                      x="200"
+                      y="195"
+                      text-anchor="middle"
+                      fill="#847C70"
+                      font-family="'Space Mono', monospace"
+                      font-size="6"
+                    >
+                      AUTOMATIC · CHRONOMÈTRE
+                    </text>
+                  </svg>
+                </div>
+              </div>
+              <div
+                style="
+                  padding: 1.5rem;
+                  display: flex;
+                  flex-direction: column;
+                  flex-grow: 1;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 0.5rem;
+                    font-size: 0.75rem;
+                    color: var(--ink-muted);
+                    font-family: var(--font-mono);
+                  "
+                >
+                  <span>Zurich &amp; Geneva</span>
+                  <span>2023</span>
+                </div>
+                <h3
+                  class="font-serif"
+                  style="
+                    font-size: 1.35rem;
+                    font-weight: 700;
+                    margin-bottom: 0.5rem;
+                  "
+                >
+                  Atelier Vesper
+                </h3>
+                <p
+                  style="
+                    font-size: 0.875rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.55;
+                    margin-bottom: 1.25rem;
+                    flex-grow: 1;
+                  "
+                >
+                  High-precision brand identity, custom watch dial numeral
+                  drafting, unboxing experience from 100% recycled greyboard,
+                  and luxury e-commerce art direction.
+                </p>
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    border-top: 1px solid var(--border-soft);
+                    padding-top: 0.875rem;
+                  "
+                >
+                  <span
+                    style="
+                      font-size: 0.8125rem;
+                      color: var(--ink-primary);
+                      font-weight: 600;
+                    "
+                    >Horology · Unboxing Suite</span
+                  >
+                  <span
+                    style="
+                      font-size: 0.8125rem;
+                      color: var(--ink-primary);
+                      font-weight: 600;
+                      display: flex;
+                      align-items: center;
+                      gap: 0.25rem;
+                    "
+                  >
+                    Case Study →
+                  </span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== DESIGN CAPABILITIES / DISCIPLINE ==================== -->
+      <section
+        id="capabilities"
+        style="
+          background: var(--bg-subtle);
+          border-top: 1px solid var(--border-soft);
+          border-bottom: 1px solid var(--border-soft);
+          padding-top: clamp(4rem, 8vw, 6.5rem);
+          padding-bottom: clamp(4rem, 8vw, 6.5rem);
+        "
+      >
+        <div class="editorial-container">
+          <div style="max-width: 720px; margin-bottom: 3.5rem">
+            <div
+              class="font-mono"
+              style="
+                font-size: 0.8125rem;
+                color: var(--accent-clay);
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                margin-bottom: 0.5rem;
+              "
+            >
+              Studio Capabilities
+            </div>
+            <h2
+              class="font-serif"
+              style="
+                font-size: clamp(2rem, 3.5vw, 2.75rem);
+                font-weight: 700;
+                letter-spacing: -0.01em;
+                margin-bottom: 1rem;
+              "
+            >
+              Crafted disciplines for brands seeking substance over noise.
+            </h2>
+            <p
+              style="
+                font-size: 1.0625rem;
+                color: var(--ink-secondary);
+                line-height: 1.6;
+              "
+            >
+              Every engagement is collaborative and rigorous. I work directly
+              with founders and cultural directors to create enduring identity
+              systems built from authentic roots.
+            </p>
+          </div>
+
+          <!-- 4 Disciplines Rows -->
+          <div>
+            <!-- 01 -->
+            <div class="capability-row">
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: 80px 1.5fr 2fr;
+                  gap: 1.5rem;
+                  align-items: baseline;
+                "
+                class="cap-grid"
+              >
+                <span
+                  class="font-mono"
+                  style="
+                    font-size: 1rem;
+                    color: var(--accent-clay);
+                    font-weight: 700;
+                  "
+                  >01.</span
+                >
+                <div>
+                  <h3
+                    class="font-serif"
+                    style="
+                      font-size: 1.5rem;
+                      font-weight: 700;
+                      margin-bottom: 0.35rem;
+                    "
+                  >
+                    Brand Architecture &amp; Strategy
+                  </h3>
+                  <span
+                    class="font-mono"
+                    style="font-size: 0.75rem; color: var(--ink-muted)"
+                    >Foundational Narrative · Positioning · Naming</span
+                  >
+                </div>
+                <p
+                  style="
+                    font-size: 0.9375rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.6;
+                  "
+                >
+                  Uncovering the core tension and cultural resonance of your
+                  venture. We establish clear brand positioning, voice
+                  frameworks, audience personas, and architectural structures
+                  that guide future expansion without dilution.
+                </p>
+              </div>
+            </div>
+
+            <!-- 02 -->
+            <div class="capability-row">
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: 80px 1.5fr 2fr;
+                  gap: 1.5rem;
+                  align-items: baseline;
+                "
+                class="cap-grid"
+              >
+                <span
+                  class="font-mono"
+                  style="
+                    font-size: 1rem;
+                    color: var(--accent-clay);
+                    font-weight: 700;
+                  "
+                  >02.</span
+                >
+                <div>
+                  <h3
+                    class="font-serif"
+                    style="
+                      font-size: 1.5rem;
+                      font-weight: 700;
+                      margin-bottom: 0.35rem;
+                    "
+                  >
+                    Visual Identity &amp; Typography
+                  </h3>
+                  <span
+                    class="font-mono"
+                    style="font-size: 0.75rem; color: var(--ink-muted)"
+                    >Logomarks · Custom Glyphs · Design Guidelines</span
+                  >
+                </div>
+                <p
+                  style="
+                    font-size: 0.9375rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.6;
+                  "
+                >
+                  Developing expressive typographic systems, custom wordmarks,
+                  monograms, color palettes, and comprehensive guidelines. Every
+                  asset is stress-tested across print, physical signage, and
+                  digital environments.
+                </p>
+              </div>
+            </div>
+
+            <!-- 03 -->
+            <div class="capability-row">
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: 80px 1.5fr 2fr;
+                  gap: 1.5rem;
+                  align-items: baseline;
+                "
+                class="cap-grid"
+              >
+                <span
+                  class="font-mono"
+                  style="
+                    font-size: 1rem;
+                    color: var(--accent-clay);
+                    font-weight: 700;
+                  "
+                  >03.</span
+                >
+                <div>
+                  <h3
+                    class="font-serif"
+                    style="
+                      font-size: 1.5rem;
+                      font-weight: 700;
+                      margin-bottom: 0.35rem;
+                    "
+                  >
+                    Tactile Packaging &amp; Material Craft
+                  </h3>
+                  <span
+                    class="font-mono"
+                    style="font-size: 0.75rem; color: var(--ink-muted)"
+                    >Paper Selection · Blind Deboss · Foil Stamping</span
+                  >
+                </div>
+                <p
+                  style="
+                    font-size: 0.9375rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.6;
+                  "
+                >
+                  Collaborating with paper mills and artisan print houses to
+                  select FSC-certified stocks, cotton papers, structural box
+                  dies, blind embossing, and vegetable-based inks that deliver a
+                  memorable unboxing touchpoint.
+                </p>
+              </div>
+            </div>
+
+            <!-- 04 -->
+            <div class="capability-row">
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: 80px 1.5fr 2fr;
+                  gap: 1.5rem;
+                  align-items: baseline;
+                "
+                class="cap-grid"
+              >
+                <span
+                  class="font-mono"
+                  style="
+                    font-size: 1rem;
+                    color: var(--accent-clay);
+                    font-weight: 700;
+                  "
+                  >04.</span
+                >
+                <div>
+                  <h3
+                    class="font-serif"
+                    style="
+                      font-size: 1.5rem;
+                      font-weight: 700;
+                      margin-bottom: 0.35rem;
+                    "
+                  >
+                    Editorial Systems &amp; Web Archives
+                  </h3>
+                  <span
+                    class="font-mono"
+                    style="font-size: 0.75rem; color: var(--ink-muted)"
+                    >Art Direction · Monograph Layouts · Digital Spaces</span
+                  >
+                </div>
+                <p
+                  style="
+                    font-size: 0.9375rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.6;
+                  "
+                >
+                  Translating physical warmth into the digital space. Designing
+                  bespoke editorial websites, online exhibition rooms, and
+                  monographs that prioritize spacious reading comfort,
+                  responsive finesse, and typographic hierarchy.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Working Methodology Steps -->
+          <div
+            style="
+              margin-top: 4.5rem;
+              padding-top: 3rem;
+              border-top: 1px solid var(--border-soft);
+            "
+          >
+            <div
+              class="font-mono"
+              style="
+                font-size: 0.8125rem;
+                color: var(--ink-muted);
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                margin-bottom: 1.5rem;
+              "
+            >
+              The 4-Stage Methodology
+            </div>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 2rem;
+              "
+            >
+              <div>
+                <span
+                  class="font-mono"
+                  style="
+                    font-size: 0.75rem;
+                    color: var(--accent-clay);
+                    display: block;
+                    margin-bottom: 0.5rem;
+                  "
+                  >PHASE 01</span
+                >
+                <h4
+                  class="font-serif"
+                  style="
+                    font-size: 1.125rem;
+                    font-weight: 700;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Cultural Archaeology
+                </h4>
+                <p
+                  style="
+                    font-size: 0.875rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.55;
+                  "
+                >
+                  Immersion in historical archives, material textures, founder
+                  philosophies, and competitive blind spots.
+                </p>
+              </div>
+              <div>
+                <span
+                  class="font-mono"
+                  style="
+                    font-size: 0.75rem;
+                    color: var(--accent-clay);
+                    display: block;
+                    margin-bottom: 0.5rem;
+                  "
+                  >PHASE 02</span
+                >
+                <h4
+                  class="font-serif"
+                  style="
+                    font-size: 1.125rem;
+                    font-weight: 700;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Typographic Form
+                </h4>
+                <p
+                  style="
+                    font-size: 0.875rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.55;
+                  "
+                >
+                  Hand-drafted lettering studies, type pairing experiments, and
+                  compositional layout directions.
+                </p>
+              </div>
+              <div>
+                <span
+                  class="font-mono"
+                  style="
+                    font-size: 0.75rem;
+                    color: var(--accent-clay);
+                    display: block;
+                    margin-bottom: 0.5rem;
+                  "
+                  >PHASE 03</span
+                >
+                <h4
+                  class="font-serif"
+                  style="
+                    font-size: 1.125rem;
+                    font-weight: 700;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Material Proofing
+                </h4>
+                <p
+                  style="
+                    font-size: 0.875rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.55;
+                  "
+                >
+                  Physical mockups, print calibration, deboss tests, and
+                  responsive browser validation.
+                </p>
+              </div>
+              <div>
+                <span
+                  class="font-mono"
+                  style="
+                    font-size: 0.75rem;
+                    color: var(--accent-clay);
+                    display: block;
+                    margin-bottom: 0.5rem;
+                  "
+                  >PHASE 04</span
+                >
+                <h4
+                  class="font-serif"
+                  style="
+                    font-size: 1.125rem;
+                    font-weight: 700;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Guardianship
+                </h4>
+                <p
+                  style="
+                    font-size: 0.875rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.55;
+                  "
+                >
+                  Detailed brand guidelines manuals, component libraries,
+                  supplier specs, and ongoing art direction.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== BIOGRAPHY & PHILOSOPHY ==================== -->
+      <section
+        id="biography"
+        style="
+          padding-top: clamp(4rem, 8vw, 7rem);
+          padding-bottom: clamp(4rem, 8vw, 7rem);
+        "
+      >
+        <div class="editorial-container">
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr;
+              gap: clamp(3rem, 6vw, 5rem);
+              align-items: start;
+            "
+            id="bio-grid"
+          >
+            <!-- Left Column: Portrait & Studio Still Life Composition -->
+            <div>
+              <div
+                style="
+                  background: var(--bg-card);
+                  border: 1px solid var(--border-soft);
+                  border-radius: 8px;
+                  padding: 1.5rem;
+                  position: relative;
+                  box-shadow: 0 16px 40px -10px rgba(24, 22, 20, 0.06);
+                "
+              >
+                <!-- Editorial Designer Portrait Mockup (Geometric Minimalist Vector Art) -->
+                <div
+                  style="
+                    aspect-ratio: 4 / 5;
+                    background: #ece6da;
+                    border-radius: 4px;
+                    overflow: hidden;
+                    position: relative;
+                  "
+                >
+                  <svg
+                    viewBox="0 0 400 500"
+                    width="100%"
+                    height="100%"
+                    style="display: block"
+                  >
+                    <rect width="400" height="500" fill="#E6DFD0" />
+                    <!-- Warm artistic studio portrait silhouette of Amara Eze -->
+                    <circle cx="200" cy="190" r="85" fill="#4A3428" />
+                    <!-- Sculptural hair / silhouette form -->
+                    <path
+                      d="M 115 190 C 115 110, 285 110, 285 190 C 285 240, 260 250, 200 250 C 140 250, 115 240, 115 190 Z"
+                      fill="#241B16"
+                    />
+                    <circle cx="200" cy="180" r="55" fill="#754E38" />
+                    <!-- Editorial geometric garment -->
+                    <path
+                      d="M 120 310 L 280 310 L 330 500 L 70 500 Z"
+                      fill="#1C2D42"
+                    />
+                    <!-- Terracotta scarf / accent -->
+                    <polygon
+                      points="175,280 225,280 240,360 160,360"
+                      fill="#C24E33"
+                    />
+                    <!-- Typographic studio label in corner -->
+                    <rect
+                      x="25"
+                      y="440"
+                      width="180"
+                      height="35"
+                      fill="#FAF7F0"
+                    />
+                    <text
+                      x="35"
+                      y="462"
+                      fill="#181614"
+                      font-family="'Space Mono', monospace"
+                      font-size="9"
+                      font-weight="700"
+                    >
+                      AMARA EZE · STUDIO
+                    </text>
+                  </svg>
+                </div>
+
+                <!-- Caption -->
+                <div
+                  style="
+                    margin-top: 1.25rem;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: baseline;
+                  "
+                >
+                  <span
+                    class="font-serif"
+                    style="font-size: 1rem; font-weight: 700"
+                    >Amara Eze</span
+                  >
+                  <span
+                    class="font-mono"
+                    style="font-size: 0.75rem; color: var(--ink-muted)"
+                    >Studio Lagos / London</span
+                  >
+                </div>
+              </div>
+
+              <!-- Recognition & Jury Roles -->
+              <div
+                style="
+                  margin-top: 2rem;
+                  background: var(--bg-subtle);
+                  border-radius: 6px;
+                  padding: 1.5rem;
+                  border: 1px solid var(--border-soft);
+                "
+              >
+                <div
+                  class="font-mono"
+                  style="
+                    font-size: 0.75rem;
+                    color: var(--accent-clay);
+                    text-transform: uppercase;
+                    letter-spacing: 0.08em;
+                    margin-bottom: 0.75rem;
+                  "
+                >
+                  Selected Recognition
+                </div>
+                <ul
+                  style="
+                    list-style: none;
+                    font-size: 0.875rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.7;
+                  "
+                >
+                  <li
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      border-bottom: 1px dashed var(--border-medium);
+                      padding-bottom: 0.35rem;
+                      margin-bottom: 0.35rem;
+                    "
+                  >
+                    <span>Tokyo TDC Typography Annual</span>
+                    <span class="font-mono" style="color: var(--ink-muted)"
+                      >2023, 2024</span
+                    >
+                  </li>
+                  <li
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      border-bottom: 1px dashed var(--border-medium);
+                      padding-bottom: 0.35rem;
+                      margin-bottom: 0.35rem;
+                    "
+                  >
+                    <span>AIGA Eye on Design Feature</span>
+                    <span class="font-mono" style="color: var(--ink-muted)"
+                      >2024</span
+                    >
+                  </li>
+                  <li
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      border-bottom: 1px dashed var(--border-medium);
+                      padding-bottom: 0.35rem;
+                      margin-bottom: 0.35rem;
+                    "
+                  >
+                    <span>British Council Craft Fellow</span>
+                    <span class="font-mono" style="color: var(--ink-muted)"
+                      >2022</span
+                    >
+                  </li>
+                  <li style="display: flex; justify-content: space-between">
+                    <span>D&amp;AD New Blood Pencil</span>
+                    <span class="font-mono" style="color: var(--ink-muted)"
+                      >2019</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Right Column: Professional Biography & Philosophy -->
+            <div>
+              <div
+                class="font-mono"
+                style="
+                  font-size: 0.8125rem;
+                  color: var(--accent-clay);
+                  text-transform: uppercase;
+                  letter-spacing: 0.08em;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Professional Biography
+              </div>
+              <h2
+                class="font-serif"
+                style="
+                  font-size: clamp(2.25rem, 3.8vw, 3.25rem);
+                  font-weight: 700;
+                  line-height: 1.15;
+                  letter-spacing: -0.01em;
+                  margin-bottom: 1.75rem;
+                "
+              >
+                Rooted in heritage, refined through editorial discipline.
+              </h2>
+
+              <!-- Big Editorial Pull Quote -->
+              <div
+                style="
+                  position: relative;
+                  margin: 2rem 0;
+                  padding-left: 1.75rem;
+                  border-left: 2px solid var(--accent-clay);
+                "
+              >
+                <p
+                  class="font-serif"
+                  style="
+                    font-size: clamp(1.2rem, 2vw, 1.45rem);
+                    font-style: italic;
+                    color: var(--ink-primary);
+                    line-height: 1.5;
+                  "
+                >
+                  “A brand is not a logo stamp; it is a resonant atmosphere
+                  built from dozens of deliberate micro-decisions across paper
+                  grain, letter spacing, and human tone.”
+                </p>
+              </div>
+
+              <!-- Biography Prose -->
+              <div
+                style="
+                  font-size: 1rem;
+                  color: var(--ink-secondary);
+                  line-height: 1.75;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 1.25rem;
+                "
+              >
+                <p>
+                  Amara Eze is an independent brand designer and typographer
+                  whose practice spans cultural institutions, boutique
+                  packaging, and contemporary publications. Following her First
+                  Class Honours degree in Graphic Communication at Central Saint
+                  Martins in London, she spent four years collaborating with
+                  prominent design agencies before founding her independent
+                  studio in 2019.
+                </p>
+                <p>
+                  Her visual language bridges West African craft
+                  heritage—notably the intricate geometric rhythms of Yoruba
+                  adire textile dye methods and Uli line art—with the strict
+                  functional clarity of mid-century Swiss modernism. Rather than
+                  relying on trend-driven digital templates, Amara treats every
+                  brand system as a physical artefact: beginning with archival
+                  research, bespoke typographic glyphs, and material
+                  prototyping.
+                </p>
+                <p>
+                  When not designing identities for clients across Europe,
+                  Africa, and North America, Amara mentors emerging designers
+                  through the Lagos Design Network and occasionally lectures on
+                  tactile typography and decolonial visual archives.
+                </p>
+              </div>
+
+              <!-- Philosophy Pillars -->
+              <div
+                style="
+                  margin-top: 2.5rem;
+                  display: grid;
+                  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                  gap: 1.5rem;
+                "
+              >
+                <div
+                  style="
+                    background: #ffffff;
+                    border: 1px solid var(--border-soft);
+                    border-radius: 6px;
+                    padding: 1.25rem;
+                  "
+                >
+                  <span
+                    class="font-serif"
+                    style="
+                      font-size: 1.1rem;
+                      font-weight: 700;
+                      display: block;
+                      margin-bottom: 0.25rem;
+                    "
+                    >Material Substance</span
+                  >
+                  <p
+                    style="
+                      font-size: 0.8125rem;
+                      color: var(--ink-secondary);
+                      line-height: 1.5;
+                    "
+                  >
+                    Digital screens change hourly; physical papers and packaging
+                    preserve enduring brand truth.
+                  </p>
+                </div>
+                <div
+                  style="
+                    background: #ffffff;
+                    border: 1px solid var(--border-soft);
+                    border-radius: 6px;
+                    padding: 1.25rem;
+                  "
+                >
+                  <span
+                    class="font-serif"
+                    style="
+                      font-size: 1.1rem;
+                      font-weight: 700;
+                      display: block;
+                      margin-bottom: 0.25rem;
+                    "
+                    >Typographic Tone</span
+                  >
+                  <p
+                    style="
+                      font-size: 0.8125rem;
+                      color: var(--ink-secondary);
+                      line-height: 1.5;
+                    "
+                  >
+                    Letters are vocal instruments. We draft glyphs and pairings
+                    that communicate with emotional nuance.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CAREER TIMELINE / MILESTONES ==================== -->
+      <section
+        id="timeline"
+        style="
+          background: var(--bg-subtle);
+          border-top: 1px solid var(--border-soft);
+          border-bottom: 1px solid var(--border-soft);
+          padding-top: clamp(4rem, 8vw, 6.5rem);
+          padding-bottom: clamp(4rem, 8vw, 6.5rem);
+        "
+      >
+        <div class="editorial-container">
+          <div
+            style="display: grid; grid-template-columns: 1fr; md:grid-template-columns: 1fr 2fr; gap: clamp(2rem, 5vw, 4rem);"
+            class="timeline-grid"
+          >
+            <div>
+              <div
+                class="font-mono"
+                style="
+                  font-size: 0.8125rem;
+                  color: var(--accent-clay);
+                  text-transform: uppercase;
+                  letter-spacing: 0.08em;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Career Trajectory
+              </div>
+              <h2
+                class="font-serif"
+                style="
+                  font-size: clamp(2rem, 3.2vw, 2.75rem);
+                  font-weight: 700;
+                  letter-spacing: -0.01em;
+                  margin-bottom: 1rem;
+                "
+              >
+                Milestones &amp; Archival Record
+              </h2>
+              <p
+                style="
+                  font-size: 0.9375rem;
+                  color: var(--ink-secondary);
+                  line-height: 1.6;
+                "
+              >
+                A curated sequence of studio evolution, selected institutional
+                awards, and pivotal brand commissions over the past decade.
+              </p>
+            </div>
+
+            <!-- Timeline List -->
+            <div>
+              <!-- Milestone 1 -->
+              <div class="timeline-item">
+                <span
+                  class="font-mono"
+                  style="
+                    font-size: 0.75rem;
+                    color: var(--accent-clay);
+                    font-weight: 700;
+                  "
+                  >2024 — PRESENT</span
+                >
+                <h3
+                  class="font-serif"
+                  style="
+                    font-size: 1.25rem;
+                    font-weight: 700;
+                    margin-top: 0.25rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Studio Amara Eze — Global Practice
+                </h3>
+                <p
+                  style="
+                    font-size: 0.875rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.6;
+                  "
+                >
+                  Expanded independent studio operations across West Africa and
+                  Europe. Commissioned for identity systems by Grasse luxury
+                  apothecaries, Scandinavian architecture collectives, and
+                  London cultural publishers.
+                </p>
+              </div>
+
+              <!-- Milestone 2 -->
+              <div class="timeline-item">
+                <span
+                  class="font-mono"
+                  style="
+                    font-size: 0.75rem;
+                    color: var(--ink-muted);
+                    font-weight: 700;
+                  "
+                  >2023</span
+                >
+                <h3
+                  class="font-serif"
+                  style="
+                    font-size: 1.25rem;
+                    font-weight: 700;
+                    margin-top: 0.25rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Tokyo TDC Typography Annual Selection
+                </h3>
+                <p
+                  style="
+                    font-size: 0.875rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.6;
+                  "
+                >
+                  Honoured with the Tokyo Type Directors Club Annual Selection
+                  for editorial book design and custom ligature drafting on the
+                  Solarium Press monograph series.
+                </p>
+              </div>
+
+              <!-- Milestone 3 -->
+              <div class="timeline-item">
+                <span
+                  class="font-mono"
+                  style="
+                    font-size: 0.75rem;
+                    color: var(--ink-muted);
+                    font-weight: 700;
+                  "
+                  >2021 — 2023</span
+                >
+                <h3
+                  class="font-serif"
+                  style="
+                    font-size: 1.25rem;
+                    font-weight: 700;
+                    margin-top: 0.25rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Lead Brand Designer, Studio Meridian (London)
+                </h3>
+                <p
+                  style="
+                    font-size: 0.875rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.6;
+                  "
+                >
+                  Spearheaded visual identity direction for museum rebrands,
+                  luxury hospitality, and sustainable consumer brands across the
+                  UK and Continental Europe.
+                </p>
+              </div>
+
+              <!-- Milestone 4 -->
+              <div class="timeline-item">
+                <span
+                  class="font-mono"
+                  style="
+                    font-size: 0.75rem;
+                    color: var(--ink-muted);
+                    font-weight: 700;
+                  "
+                  >2020</span
+                >
+                <h3
+                  class="font-serif"
+                  style="
+                    font-size: 1.25rem;
+                    font-weight: 700;
+                    margin-top: 0.25rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  British Council Craft &amp; Material Fellowship
+                </h3>
+                <p
+                  style="
+                    font-size: 0.875rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.6;
+                  "
+                >
+                  Awarded residency research grant investigating indigenous West
+                  African natural dye methods and their translation into
+                  circular paper packaging systems.
+                </p>
+              </div>
+
+              <!-- Milestone 5 -->
+              <div class="timeline-item">
+                <span
+                  class="font-mono"
+                  style="
+                    font-size: 0.75rem;
+                    color: var(--ink-muted);
+                    font-weight: 700;
+                  "
+                  >2018</span
+                >
+                <h3
+                  class="font-serif"
+                  style="
+                    font-size: 1.25rem;
+                    font-weight: 700;
+                    margin-top: 0.25rem;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  BA Graphic Communication (First Class), Central Saint Martins
+                </h3>
+                <p
+                  style="
+                    font-size: 0.875rem;
+                    color: var(--ink-secondary);
+                    line-height: 1.6;
+                  "
+                >
+                  Graduated with highest departmental honours; awarded the
+                  Dean's Prize for Typographic Innovation and the D&amp;AD New
+                  Blood Wooden Pencil.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CONTACT & COMMISSION INQUIRY ==================== -->
+      <section
+        id="contact"
+        style="
+          padding-top: clamp(4rem, 8vw, 7rem);
+          padding-bottom: clamp(4rem, 8vw, 7rem);
+        "
+      >
+        <div class="editorial-container">
+          <div
+            style="display: grid; grid-template-columns: 1fr; md:grid-template-columns: 1fr 1fr; gap: clamp(3rem, 6vw, 5rem);"
+            class="contact-grid"
+          >
+            <!-- Left: Contact Details & Studio Booking Status -->
+            <div>
+              <div
+                class="font-mono"
+                style="
+                  font-size: 0.8125rem;
+                  color: var(--accent-clay);
+                  text-transform: uppercase;
+                  letter-spacing: 0.08em;
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Initiate Dialogue
+              </div>
+              <h2
+                class="font-serif"
+                style="
+                  font-size: clamp(2.25rem, 4vw, 3.25rem);
+                  font-weight: 700;
+                  line-height: 1.15;
+                  letter-spacing: -0.01em;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                Let's craft something deliberate together.
+              </h2>
+              <p
+                style="
+                  font-size: 1.0625rem;
+                  color: var(--ink-secondary);
+                  line-height: 1.65;
+                  margin-bottom: 2.5rem;
+                "
+              >
+                I accept a limited roster of 4 to 6 comprehensive identity
+                commissions each calendar year to ensure deep directorial
+                attention for every project.
+              </p>
+
+              <!-- Direct Email Quick-Copy Card -->
+              <div
+                style="
+                  background: var(--bg-card);
+                  border: 1px solid var(--border-medium);
+                  border-radius: 8px;
+                  padding: 1.5rem;
+                  margin-bottom: 2rem;
+                "
+              >
+                <span
+                  class="font-mono"
+                  style="
+                    font-size: 0.75rem;
+                    color: var(--ink-muted);
+                    text-transform: uppercase;
+                    display: block;
+                    margin-bottom: 0.5rem;
+                  "
+                  >Direct Inquiries</span
+                >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    gap: 0.75rem;
+                  "
+                >
+                  <span
+                    class="font-serif"
+                    style="
+                      font-size: 1.25rem;
+                      font-weight: 700;
+                      color: var(--ink-primary);
+                    "
+                    id="email-address"
+                    >amara@amaraeze.design</span
+                  >
+                  <button
+                    id="copy-email-btn"
+                    style="
+                      background: var(--bg-subtle);
+                      border: 1px solid var(--border-soft);
+                      font-family: var(--font-mono);
+                      font-size: 0.75rem;
+                      padding: 0.45rem 0.85rem;
+                      border-radius: 4px;
+                      cursor: pointer;
+                      color: var(--ink-primary);
+                      display: flex;
+                      align-items: center;
+                      gap: 0.35rem;
+                    "
+                  >
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect
+                        x="9"
+                        y="9"
+                        width="13"
+                        height="13"
+                        rx="2"
+                        ry="2"
+                      ></rect>
+                      <path
+                        d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                      ></path>
+                    </svg>
+                    <span>Copy Email</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Availability & Booking Meta -->
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 1rem;
+                  font-size: 0.875rem;
+                "
+              >
+                <div style="display: flex; align-items: center; gap: 0.75rem">
+                  <span
+                    style="
+                      width: 8px;
+                      height: 8px;
+                      border-radius: 50%;
+                      background-color: #2e7d32;
+                    "
+                  ></span>
+                  <span
+                    ><strong>Current Status:</strong> Booking Q3 &amp; Q4 2026
+                    engagements</span
+                  >
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem">
+                  <span class="font-mono" style="color: var(--ink-muted)"
+                    >Base:</span
+                  >
+                  <span>Victoria Island, Lagos &amp; Shoreditch, London</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem">
+                  <span class="font-mono" style="color: var(--ink-muted)"
+                    >Turnaround:</span
+                  >
+                  <span>Typical brand identity engagement runs 6–10 weeks</span>
+                </div>
+              </div>
+
+              <!-- Social Links -->
+              <div
+                style="
+                  margin-top: 2.5rem;
+                  display: flex;
+                  gap: 1.5rem;
+                  font-family: var(--font-mono);
+                  font-size: 0.8125rem;
+                "
+              >
+                <a
+                  href="#hero"
+                  style="color: var(--ink-secondary); text-decoration: none"
+                  >Are.na ↗</a
+                >
+                <a
+                  href="#hero"
+                  style="color: var(--ink-secondary); text-decoration: none"
+                  >ReadCV ↗</a
+                >
+                <a
+                  href="#hero"
+                  style="color: var(--ink-secondary); text-decoration: none"
+                  >Instagram ↗</a
+                >
+                <a
+                  href="#hero"
+                  style="color: var(--ink-secondary); text-decoration: none"
+                  >LinkedIn ↗</a
+                >
+              </div>
+            </div>
+
+            <!-- Right: Interactive Inquiry Form -->
+            <div>
+              <div
+                style="
+                  background: var(--bg-card);
+                  border: 1px solid var(--border-soft);
+                  border-radius: 8px;
+                  padding: clamp(1.5rem, 4vw, 2.5rem);
+                  box-shadow: 0 16px 40px -12px rgba(24, 22, 20, 0.07);
+                "
+              >
+                <h3
+                  class="font-serif"
+                  style="
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  Commission Inquiry
+                </h3>
+                <p
+                  style="
+                    font-size: 0.875rem;
+                    color: var(--ink-secondary);
+                    margin-bottom: 1.75rem;
+                  "
+                >
+                  Please provide brief context regarding your project scope and
+                  intended timeline.
+                </p>
+
+                <form id="inquiry-form" novalidate>
+                  <div
+                    style="display: flex; flex-direction: column; gap: 1.25rem"
+                  >
+                    <div>
+                      <label
+                        for="client-name"
+                        style="
+                          display: block;
+                          font-size: 0.8125rem;
+                          font-weight: 600;
+                          margin-bottom: 0.35rem;
+                        "
+                      >
+                        Your Name / Studio
+                        <span style="color: var(--accent-clay)">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="client-name"
+                        name="name"
+                        required
+                        class="form-input"
+                        placeholder="e.g. Elena Moreau"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        for="client-email"
+                        style="
+                          display: block;
+                          font-size: 0.8125rem;
+                          font-weight: 600;
+                          margin-bottom: 0.35rem;
+                        "
+                      >
+                        Email Address
+                        <span style="color: var(--accent-clay)">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        id="client-email"
+                        name="email"
+                        required
+                        class="form-input"
+                        placeholder="elena@atelier.com"
+                      />
+                    </div>
+
+                    <div
+                      style="
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 1rem;
+                      "
+                    >
+                      <div>
+                        <label
+                          for="project-discipline"
+                          style="
+                            display: block;
+                            font-size: 0.8125rem;
+                            font-weight: 600;
+                            margin-bottom: 0.35rem;
+                          "
+                        >
+                          Discipline
+                          <span style="color: var(--accent-clay)">*</span>
+                        </label>
+                        <select
+                          id="project-discipline"
+                          name="discipline"
+                          class="form-select"
+                        >
+                          <option value="brand">Brand Identity</option>
+                          <option value="packaging">Packaging Craft</option>
+                          <option value="editorial">Editorial / Web</option>
+                          <option value="comprehensive">
+                            Comprehensive System
+                          </option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label
+                          for="project-budget"
+                          style="
+                            display: block;
+                            font-size: 0.8125rem;
+                            font-weight: 600;
+                            margin-bottom: 0.35rem;
+                          "
+                        >
+                          Approx. Budget
+                        </label>
+                        <select
+                          id="project-budget"
+                          name="budget"
+                          class="form-select"
+                        >
+                          <option value="8-15k">$8,000 – $15,000</option>
+                          <option value="15-25k">$15,000 – $25,000</option>
+                          <option value="25k+">$25,000+</option>
+                          <option value="grant">
+                            Cultural Grant / Non-Profit
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label
+                        for="project-overview"
+                        style="
+                          display: block;
+                          font-size: 0.8125rem;
+                          font-weight: 600;
+                          margin-bottom: 0.35rem;
+                        "
+                      >
+                        Project Overview &amp; Goals
+                        <span style="color: var(--accent-clay)">*</span>
+                      </label>
+                      <textarea
+                        id="project-overview"
+                        name="overview"
+                        required
+                        rows="4"
+                        class="form-textarea"
+                        placeholder="Tell me about your venture, vision, timeline, and key challenges..."
+                      ></textarea>
+                    </div>
+
+                    <button
+                      type="submit"
+                      id="submit-btn"
+                      style="
+                        background-color: var(--accent-clay);
+                        color: #ffffff;
+                        font-weight: 600;
+                        font-size: 0.9375rem;
+                        padding: 0.85rem 1.5rem;
+                        border: none;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 0.5rem;
+                      "
+                    >
+                      <span>Submit Commission Inquiry</span>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                      </svg>
+                    </button>
+
+                    <div
+                      id="form-error"
+                      style="
+                        display: none;
+                        color: #b71c1c;
+                        font-size: 0.8125rem;
+                        margin-top: 0.5rem;
+                        text-align: center;
+                      "
+                    >
+                      Please complete all required fields with a valid email.
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==================== FOOTER & COLOPHON ==================== -->
+    <footer
+      style="
+        background: #141311;
+        color: #faf7f0;
+        padding-top: 4.5rem;
+        padding-bottom: 3.5rem;
+        border-top: 1px solid #282420;
+      "
+    >
+      <div class="editorial-container">
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3.5rem;
+          "
+        >
+          <div>
+            <div
+              style="
+                font-family: var(--font-serif);
+                font-size: 1.5rem;
+                font-weight: 700;
+                margin-bottom: 0.5rem;
+              "
+            >
+              Amara Eze
+            </div>
+            <p
+              style="
+                font-size: 0.875rem;
+                color: #9e9689;
+                line-height: 1.6;
+                max-width: 32ch;
+              "
+            >
+              Independent brand &amp; visual design studio shaping enduring
+              visual languages for cultural and commercial clients.
+            </p>
+          </div>
+
+          <div>
+            <span
+              class="font-mono"
+              style="
+                font-size: 0.75rem;
+                color: #b88628;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                display: block;
+                margin-bottom: 0.75rem;
+              "
+              >Studio Coordinates</span
+            >
+            <p style="font-size: 0.875rem; color: #d1c9bc; line-height: 1.6">
+              Victoria Island, Lagos, Nigeria<br />
+              Shoreditch, London EC2A, United Kingdom<br />
+              <span class="font-mono" style="font-size: 0.75rem; color: #8f887d"
+                >Consulting Worldwide</span
+              >
+            </p>
+          </div>
+
+          <div>
+            <span
+              class="font-mono"
+              style="
+                font-size: 0.75rem;
+                color: #b88628;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                display: block;
+                margin-bottom: 0.75rem;
+              "
+              >Colophon</span
+            >
+            <p style="font-size: 0.8125rem; color: #9e9689; line-height: 1.6">
+              Typeset in <em>Playfair Display</em> by Claus Eggers Sørensen,
+              <em>Plus Jakarta Sans</em> by Tokotype, and <em>Space Mono</em> by
+              Colophon Foundry.
+            </p>
+          </div>
+        </div>
+
+        <div
+          style="
+            padding-top: 2rem;
+            border-top: 1px solid #282420;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.8125rem;
+            color: #847c70;
+          "
+        >
+          <p>© 2026 Amara Eze Studio. All rights reserved.</p>
+          <div style="display: flex; gap: 1.5rem">
+            <a href="#hero" style="color: #9e9689; text-decoration: none"
+              >Back to top ↑</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ==================== INTERACTIVE CASE STUDY MODAL ==================== -->
+    <div
+      id="project-modal"
+      class="modal-backdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+    >
+      <div class="modal-window">
+        <!-- Modal Top Bar -->
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem clamp(1.5rem, 3vw, 2.25rem);
+            border-bottom: 1px solid var(--border-soft);
+            background: var(--bg-card);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+          "
+        >
+          <div>
+            <span
+              id="modal-meta"
+              class="font-mono"
+              style="
+                font-size: 0.75rem;
+                color: var(--accent-clay);
+                text-transform: uppercase;
+              "
+            ></span>
+            <h3
+              id="modal-title"
+              class="font-serif"
+              style="
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: var(--ink-primary);
+                line-height: 1.2;
+              "
+            ></h3>
+          </div>
+          <button
+            id="modal-close-btn"
+            aria-label="Close modal window"
+            style="
+              background: transparent;
+              border: 1px solid var(--border-medium);
+              border-radius: 4px;
+              padding: 0.45rem 0.75rem;
+              font-family: var(--font-mono);
+              font-size: 0.8125rem;
+              cursor: pointer;
+              color: var(--ink-primary);
+              display: flex;
+              align-items: center;
+              gap: 0.25rem;
+            "
+          >
+            <span>✕ Close</span>
+          </button>
+        </div>
+
+        <!-- Modal Inner Content -->
+        <div style="padding: clamp(1.5rem, 3.5vw, 2.5rem)">
+          <!-- Graphic Artwork Preview in Modal -->
+          <div
+            id="modal-visual"
+            style="
+              border-radius: 6px;
+              overflow: hidden;
+              margin-bottom: 2rem;
+              border: 1px solid var(--border-soft);
+            "
+          >
+            <!-- Populated via JavaScript -->
+          </div>
+
+          <!-- 2-Column Case Breakdown -->
+          <div
+            style="display: grid; grid-template-columns: 1fr; md:grid-template-columns: 2fr 1.2fr; gap: 2.5rem;"
+            class="modal-content-grid"
+          >
+            <!-- Left: Creative Challenge & Solution -->
+            <div>
+              <h4
+                class="font-serif"
+                style="
+                  font-size: 1.25rem;
+                  font-weight: 700;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                Creative Challenge &amp; Solution
+              </h4>
+              <p
+                id="modal-desc"
+                style="
+                  font-size: 0.9375rem;
+                  color: var(--ink-secondary);
+                  line-height: 1.7;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                <!-- Populated via JavaScript -->
+              </p>
+
+              <h4
+                class="font-serif"
+                style="
+                  font-size: 1.125rem;
+                  font-weight: 700;
+                  margin-bottom: 0.75rem;
+                "
+              >
+                Client Testimonial
+              </h4>
+              <blockquote
+                style="
+                  background: var(--bg-subtle);
+                  border-left: 2px solid var(--accent-clay);
+                  padding: 1rem 1.25rem;
+                  border-radius: 0 4px 4px 0;
+                  font-size: 0.875rem;
+                  color: var(--ink-primary);
+                  font-style: italic;
+                  line-height: 1.6;
+                  margin-bottom: 1.5rem;
+                "
+                id="modal-quote"
+              >
+                <!-- Populated via JavaScript -->
+              </blockquote>
+            </div>
+
+            <!-- Right: Deliverables, Swatches & Specs -->
+            <div
+              style="
+                background: var(--bg-card);
+                border: 1px solid var(--border-soft);
+                border-radius: 6px;
+                padding: 1.5rem;
+              "
+            >
+              <span
+                class="font-mono"
+                style="
+                  font-size: 0.6875rem;
+                  color: var(--ink-muted);
+                  text-transform: uppercase;
+                  letter-spacing: 0.08em;
+                  display: block;
+                  margin-bottom: 0.75rem;
+                "
+                >Deliverables</span
+              >
+              <ul
+                id="modal-deliverables"
+                style="
+                  list-style: none;
+                  font-size: 0.8125rem;
+                  color: var(--ink-secondary);
+                  line-height: 1.8;
+                  margin-bottom: 1.5rem;
+                "
+              >
+                <!-- Populated via JavaScript -->
+              </ul>
+
+              <span
+                class="font-mono"
+                style="
+                  font-size: 0.6875rem;
+                  color: var(--ink-muted);
+                  text-transform: uppercase;
+                  letter-spacing: 0.08em;
+                  display: block;
+                  margin-bottom: 0.75rem;
+                "
+                >Color Palette &amp; Materials</span
+              >
+              <div
+                id="modal-swatches"
+                style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem"
+              >
+                <!-- Populated via JavaScript -->
+              </div>
+
+              <span
+                class="font-mono"
+                style="
+                  font-size: 0.6875rem;
+                  color: var(--ink-muted);
+                  text-transform: uppercase;
+                  letter-spacing: 0.08em;
+                  display: block;
+                  margin-bottom: 0.5rem;
+                "
+                >Typographic Pairings</span
+              >
+              <div
+                id="modal-fonts"
+                class="font-mono"
+                style="font-size: 0.75rem; color: var(--ink-primary)"
+              >
+                <!-- Populated via JavaScript -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== INQUIRY SUCCESS CONFIRMATION MODAL ==================== -->
+    <div
+      id="success-modal"
+      class="modal-backdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="success-title"
+    >
+      <div
+        class="modal-window"
+        style="max-width: 500px; padding: 2.5rem 2rem; text-align: center"
+      >
+        <div
+          style="
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 50%;
+            background: #e8f5e9;
+            color: #2e7d32;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+          "
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h3
+          id="success-title"
+          class="font-serif"
+          style="font-size: 1.75rem; font-weight: 700; margin-bottom: 0.75rem"
+        >
+          Inquiry Received
+        </h3>
+        <p
+          style="
+            font-size: 0.9375rem;
+            color: var(--ink-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.75rem;
+          "
+        >
+          Thank you for reaching out. Your project brief has been logged into
+          Amara Eze's direct studio ledger. Expect a personalized response
+          within 2 business days.
+        </p>
+        <button
+          id="success-close-btn"
+          style="
+            background: var(--ink-primary);
+            color: var(--bg-cream);
+            font-weight: 600;
+            font-size: 0.875rem;
+            padding: 0.75rem 1.75rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          "
+        >
+          Return to Portfolio
+        </button>
+      </div>
+    </div>
+
+    <!-- ==================== CLIPBOARD TOAST ==================== -->
+    <div id="toast" class="toast" role="status" aria-live="polite">
+      Email copied to clipboard (amara@amaraeze.design)
+    </div>
+
+    <!-- ==================== VANILLA JAVASCRIPT ==================== -->
+    <script>
+      (function () {
+        "use strict";
+
+        // --- Data Store for Projects & Case Studies ---
+        const projectsData = {
+          "oasis-ochre": {
+            title: "Oasis & Ochre",
+            meta: "Brand Identity & Packaging · Grasse & Marrakech (2025)",
+            desc: "Oasis & Ochre required a brand identity that felt simultaneously archaic and contemporary for their small-batch extrait de parfum line. We engineered a tactile unboxing experience utilizing 350gsm FSC cotton rag stock, blind debossing with zero plastic lamination, and bespoke hand-blown amber glass bottle silhouettes drafted to reflect Moroccan courtyard arches. The monogram interlocks botanical veins with classical Arabic geometric proportions.",
+            quote:
+              "“Amara translated the intangible scents of cedarwood and desert stone into a tactile packaging system our customers treat as treasured art objects.” — Samira Benali, Co-Founder",
+            deliverables: [
+              "Bespoke Wordmark & Monogram",
+              "Custom Glass Vessel Silhouettes",
+              "Blind Debossed Label System",
+              "Sustainable Secondary Box Packaging",
+              "Brand Manual & Material Specifications",
+            ],
+            swatches: [
+              { color: "#B85838", name: "Terracotta Clay" },
+              { color: "#C89B3C", name: "Warm Amber" },
+              { color: "#384A3B", name: "Desert Sage" },
+              { color: "#FAF7F0", name: "Cotton Rag" },
+            ],
+            fonts: "Primary: Playfair Display · Secondary: Space Mono",
+            visualSvg: `<svg viewBox="0 0 600 240" width="100%" height="auto" style="background:#EFE8DA; display:block;">
+              <rect width="600" height="240" fill="#EFE8DA"/>
+              <circle cx="300" cy="120" r="90" fill="#E6DECE"/>
+              <rect x="250" y="50" width="100" height="150" rx="8" fill="#B85838"/>
+              <rect x="280" y="30" width="40" height="20" fill="#1C1814"/>
+              <rect x="260" y="85" width="80" height="85" fill="#FAF7F0"/>
+              <text x="300" y="115" text-anchor="middle" fill="#1C1814" font-family="'Playfair Display', serif" font-weight="700" font-size="12">OASIS &amp; OCHRE</text>
+              <text x="300" y="135" text-anchor="middle" fill="#B85838" font-family="'Space Mono', monospace" font-size="8">50 ML · PURE PARFUM</text>
+            </svg>`,
+          },
+          "kanoa-studio": {
+            title: "Kanoa Studio",
+            meta: "Spatial Identity & Signage · Nairobi & Copenhagen (2025)",
+            desc: "Kanoa Studio creates architectural pavilions formed entirely from compressed stabilized earth. We designed a modular visual identity based on the horizontal stratifications of compacted soil. The system includes environmental cast-bronze signage, a linen-bound architectural monograph, and a responsive digital project archive with layout pacing inspired by gallery corridors.",
+            quote:
+              "“The identity mirrors our material ethos with exactitude: quiet, grounded, and undeniably permanent.” — Kweku Asamoah, Principal Architect",
+            deliverables: [
+              "Modular Architectural Logomark",
+              "Cast Bronze Wayfinding System",
+              "Linen-Bound Monograph & Foil Stamp",
+              "Minimalist Web Archive & Blueprint Viewer",
+              "Staff Workwear & Ephemera",
+            ],
+            swatches: [
+              { color: "#384A3B", name: "Rammed Soil Olive" },
+              { color: "#C24E33", name: "Raw Brick Clay" },
+              { color: "#FAF7F0", name: "Linen Off-White" },
+              { color: "#1C1814", name: "Iron Noir" },
+            ],
+            fonts: "Primary: Plus Jakarta Sans · Subtitle: Space Mono",
+            visualSvg: `<svg viewBox="0 0 600 240" width="100%" height="auto" style="background:#E4E8E2; display:block;">
+              <rect width="600" height="240" fill="#E4E8E2"/>
+              <rect x="180" y="40" width="240" height="160" fill="#FAF7F0" stroke="#384A3B" stroke-width="1.5"/>
+              <rect x="210" y="70" width="80" height="100" fill="#384A3B"/>
+              <rect x="310" y="90" width="80" height="60" fill="#C24E33"/>
+              <text x="300" y="225" text-anchor="middle" fill="#384A3B" font-family="'Space Mono', monospace" font-size="10">KANOA ARCHITECTURAL MONOGRAPH</text>
+            </svg>`,
+          },
+          "solarium-press": {
+            title: "Solarium Press",
+            meta: "Editorial Systems & Slipcases · London & Tokyo (2024)",
+            desc: "Solarium Press is an independent publisher of rare typography quarterlies and architectural criticism. We developed a comprehensive editorial grid system that balances Japanese vertical kanji typography with Latin serif prose. Each volume features a custom duplex cover with hot-stamped metallic gold foil emblems and thread-sewn open spines. Awarded Tokyo TDC Annual Selection.",
+            quote:
+              "“Amara’s understanding of book geometry and micro-typography elevated our quarterly into an internationally recognized collectors piece.” — Arthur Vance, Editor-in-Chief",
+            deliverables: [
+              "Custom Ligature Glyph Set",
+              "Quarterly Book Jacket Series",
+              "Gold Foil Stamped Slipcases",
+              "Bilingual Editorial Grid Template",
+              "Limited Run Poster Specimen",
+            ],
+            swatches: [
+              { color: "#1C2D42", name: "Midnight Indigo" },
+              { color: "#D1A748", name: "Foil Gold" },
+              { color: "#F4EDE0", name: "Uncoated Cream" },
+              { color: "#2B3D55", name: "Aegean Blue" },
+            ],
+            fonts: "Primary: Playfair Display · Monospace: Space Mono",
+            visualSvg: `<svg viewBox="0 0 600 240" width="100%" height="auto" style="background:#F4EDE0; display:block;">
+              <rect width="600" height="240" fill="#F4EDE0"/>
+              <rect x="190" y="30" width="220" height="180" rx="3" fill="#1C2D42"/>
+              <circle cx="300" cy="100" r="32" fill="none" stroke="#D1A748" stroke-width="1.5"/>
+              <text x="300" y="155" text-anchor="middle" fill="#FAF7F0" font-family="'Playfair Display', serif" font-weight="700" font-size="16">SOLARIUM PRESS</text>
+              <text x="300" y="175" text-anchor="middle" fill="#D1A748" font-family="'Space Mono', monospace" font-size="8">TOKYO TDC SELECTION</text>
+            </svg>`,
+          },
+          "nila-textiles": {
+            title: "Nila Artisanal Textiles",
+            meta: "Brand Identity & Packaging · Abeokuta & Kyoto (2024)",
+            desc: "Working with a community of master indigo dyers in Ogun State, Nigeria, Nila produces hand-loomed organic cotton textiles using ancient cassava-starch resist techniques. We engineered an organic packaging suite made from plantable seed-paper hangtags embedded with wild indigo seeds, accompanied by hand-stamped unbleached cotton wrap bands.",
+            quote:
+              "“She honored the spiritual depth of our traditional dyeing craft while giving our collection modern international resonance.” — Folake Adeleke, Master Dyer",
+            deliverables: [
+              "Hand-Carved Identity Stamp Mark",
+              "Plantable Seed-Paper Hangtags",
+              "Organic Woven Garment Labels",
+              "Indigo Care Manual & Lookbook",
+              "Packaging Wrap & Hemp Twine Guide",
+            ],
+            swatches: [
+              { color: "#1E3250", name: "Deep Vat Indigo" },
+              { color: "#344E75", name: "Sky Indigo" },
+              { color: "#E8EDF2", name: "River Water" },
+              { color: "#FAF7F0", name: "Raw Cotton" },
+            ],
+            fonts: "Primary: Playfair Display · Body: Plus Jakarta Sans",
+            visualSvg: `<svg viewBox="0 0 600 240" width="100%" height="auto" style="background:#E8EDF2; display:block;">
+              <rect width="600" height="240" fill="#E8EDF2"/>
+              <rect x="150" y="30" width="300" height="180" rx="4" fill="#FFFFFF" stroke="#CBD5E1"/>
+              <rect x="150" y="120" width="300" height="90" fill="#1E3250"/>
+              <text x="300" y="80" text-anchor="middle" fill="#1E3250" font-family="'Playfair Display', serif" font-weight="700" font-size="18">N I L A</text>
+              <text x="300" y="100" text-anchor="middle" fill="#64748B" font-family="'Space Mono', monospace" font-size="8">HERITAGE INDIGO COLLECTIVE</text>
+            </svg>`,
+          },
+          "kora-sound": {
+            title: "Kora Sound Residency",
+            meta: "Sound Archive & Vinyl Sleeves · Berlin & Lagos (2023)",
+            desc: "Kora Sound is an experimental laboratory archiving traditional West African stringed instruments combined with modular electronic synthesizers. We created a dynamic generative waveform brand identity based on Fourier acoustic transform data. The packaging suite features heavyweight 180g gatefold vinyl covers pressed with matte black varnish and terracotta edge foiling.",
+            quote:
+              "“The vinyl sleeve art mirrors the hypnotic pulse of our sonic recordings in physical form.” — Jide Martins, Residency Director",
+            deliverables: [
+              "Generative Waveform Brandmark",
+              "Gatefold 180g Vinyl Sleeve Series",
+              "Interactive Web Audio Player Interface",
+              "Exhibition Catalog & Cassette J-Cards",
+              "Typographic Poster System",
+            ],
+            swatches: [
+              { color: "#141416", name: "Obsidian Noir" },
+              { color: "#C24E33", name: "Acoustic Terracotta" },
+              { color: "#2D2D35", name: "Warm Charcoal" },
+              { color: "#FAF7F0", name: "Warm Ecru" },
+            ],
+            fonts: "Primary: Space Mono · Accent: Playfair Display",
+            visualSvg: `<svg viewBox="0 0 600 240" width="100%" height="auto" style="background:#141416; display:block;">
+              <rect width="600" height="240" fill="#141416"/>
+              <circle cx="300" cy="120" r="80" fill="#1F1F24" stroke="#2D2D35" stroke-width="1.5"/>
+              <circle cx="300" cy="120" r="30" fill="#C24E33"/>
+              <circle cx="300" cy="120" r="5" fill="#141416"/>
+              <text x="300" y="117" text-anchor="middle" fill="#FAF7F0" font-family="'Space Mono', monospace" font-size="7" font-weight="700">KORA</text>
+              <text x="300" y="130" text-anchor="middle" fill="#FAF7F0" font-family="'Space Mono', monospace" font-size="5">VOL. 02</text>
+            </svg>`,
+          },
+          "atelier-vesper": {
+            title: "Atelier Vesper",
+            meta: "Horology & Unboxing Suite · Zurich & Geneva (2023)",
+            desc: "Atelier Vesper manufactures independent chronometers in limited editions of 50 pieces. We designed a restrained monochromatic brand language, drafted a proprietary set of dial numerals calibrated for micro-laser engraving, and engineered an unboxing experience crafted from 100% recycled unbleached greyboard with custom die-cut foam cradles.",
+            quote:
+              "“Her attention to fractional millimeter tolerances matches the precision we demand in mechanical horology.” — Marc Vesper, Master Watchmaker",
+            deliverables: [
+              "Monochromatic Brand System",
+              "Bespoke Watch Dial Numeral Set",
+              "100% Recycled Greyboard Unboxing Box",
+              "Chronometer Certificate of Authenticity",
+              "Digital Editorial Experience",
+            ],
+            swatches: [
+              { color: "#1C1814", name: "Steel Noir" },
+              { color: "#ECEBE7", name: "Brushed Titanium" },
+              { color: "#847C70", name: "Greyboard" },
+              { color: "#C24E33", name: "Second Hand Rust" },
+            ],
+            fonts: "Primary: Playfair Display · Technical: Space Mono",
+            visualSvg: `<svg viewBox="0 0 600 240" width="100%" height="auto" style="background:#ECEBE7; display:block;">
+              <rect width="600" height="240" fill="#ECEBE7"/>
+              <circle cx="300" cy="120" r="85" fill="#FAF9F6" stroke="#1C1814" stroke-width="1.2"/>
+              <line x1="300" y1="120" x2="340" y2="95" stroke="#1C1814" stroke-width="1.8"/>
+              <line x1="300" y1="120" x2="270" y2="70" stroke="#C24E33" stroke-width="1.2"/>
+              <circle cx="300" cy="120" r="3" fill="#1C1814"/>
+              <text x="300" y="90" text-anchor="middle" fill="#1C1814" font-family="'Playfair Display', serif" font-weight="700" font-size="11">VESPER</text>
+              <text x="300" y="160" text-anchor="middle" fill="#847C70" font-family="'Space Mono', monospace" font-size="6">SWISS CHRONOMETER</text>
+            </svg>`,
+          },
+        };
+
+        // --- Studio Live Clock (West Africa Time - Lagos: UTC+1) ---
+        function updateStudioClock() {
+          const now = new Date();
+          // Calculate UTC+1 (WAT)
+          const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+          const watTime = new Date(utc + 3600000 * 1);
+
+          let hours = watTime.getHours();
+          let minutes = watTime.getMinutes();
+          let seconds = watTime.getSeconds();
+
+          const pad = (n) => (n < 10 ? "0" + n : n);
+          const timeString = `${pad(hours)}:${pad(minutes)}:${pad(seconds)} WAT`;
+
+          const clockEl = document.getElementById("studio-time");
+          const mobileClockEl = document.getElementById("mobile-time");
+          const clockContainer = document.getElementById("clock-container");
+
+          if (clockEl) clockEl.textContent = timeString;
+          if (mobileClockEl)
+            mobileClockEl.textContent = `${pad(hours)}:${pad(minutes)} WAT`;
+          if (clockContainer) clockContainer.style.display = "block";
+        }
+        setInterval(updateStudioClock, 1000);
+        updateStudioClock();
+
+        // --- Mobile Navigation Toggle ---
+        const mobileToggle = document.getElementById("mobile-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileLinks = document.querySelectorAll(".mobile-link");
+
+        if (mobileToggle && mobileMenu) {
+          mobileToggle.addEventListener("click", () => {
+            const isOpen = mobileMenu.classList.contains("open");
+            if (isOpen) {
+              mobileMenu.classList.remove("open");
+              mobileToggle.setAttribute("aria-expanded", "false");
+            } else {
+              mobileMenu.classList.add("open");
+              mobileToggle.setAttribute("aria-expanded", "true");
+            }
+          });
+
+          mobileLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+              mobileMenu.classList.remove("open");
+              mobileToggle.setAttribute("aria-expanded", "false");
+            });
+          });
+        }
+
+        // --- Filter Tabs Functionality ---
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const projectCards = document.querySelectorAll(".project-card");
+
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            filterBtns.forEach((b) => {
+              b.classList.remove("active");
+              b.setAttribute("aria-selected", "false");
+            });
+            btn.classList.add("active");
+            btn.setAttribute("aria-selected", "true");
+
+            const filter = btn.getAttribute("data-filter");
+
+            projectCards.forEach((card) => {
+              const categories = card.getAttribute("data-category") || "";
+              if (filter === "all" || categories.includes(filter)) {
+                card.style.display = "flex";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+
+        // --- Case Study Modal Dialog ---
+        const projectModal = document.getElementById("project-modal");
+        const modalTitle = document.getElementById("modal-title");
+        const modalMeta = document.getElementById("modal-meta");
+        const modalDesc = document.getElementById("modal-desc");
+        const modalQuote = document.getElementById("modal-quote");
+        const modalDeliverables = document.getElementById("modal-deliverables");
+        const modalSwatches = document.getElementById("modal-swatches");
+        const modalFonts = document.getElementById("modal-fonts");
+        const modalVisual = document.getElementById("modal-visual");
+        const modalCloseBtn = document.getElementById("modal-close-btn");
+
+        function openProjectModal(projectId) {
+          const project = projectsData[projectId];
+          if (!project) return;
+
+          modalTitle.textContent = project.title;
+          modalMeta.textContent = project.meta;
+          modalDesc.textContent = project.desc;
+          modalQuote.textContent = project.quote;
+
+          // Deliverables
+          modalDeliverables.innerHTML = "";
+          project.deliverables.forEach((item) => {
+            const li = document.createElement("li");
+            li.textContent = `— ${item}`;
+            modalDeliverables.appendChild(li);
+          });
+
+          // Swatches
+          modalSwatches.innerHTML = "";
+          project.swatches.forEach((swatch) => {
+            const wrap = document.createElement("div");
+            wrap.style.display = "flex";
+            wrap.style.alignItems = "center";
+            wrap.style.gap = "0.35rem";
+            wrap.style.fontSize = "0.6875rem";
+            wrap.style.fontFamily = "var(--font-mono)";
+            wrap.innerHTML = `<span class="color-swatch" style="background:${swatch.color};"></span><span>${swatch.name}</span>`;
+            modalSwatches.appendChild(wrap);
+          });
+
+          modalFonts.textContent = project.fonts;
+          modalVisual.innerHTML = project.visualSvg;
+
+          projectModal.classList.add("open");
+          document.body.style.overflow = "hidden";
+          modalCloseBtn.focus();
+        }
+
+        function closeProjectModal() {
+          projectModal.classList.remove("open");
+          document.body.style.overflow = "";
+        }
+
+        projectCards.forEach((card) => {
+          card.addEventListener("click", () => {
+            const id = card.getAttribute("data-id");
+            openProjectModal(id);
+          });
+          card.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              const id = card.getAttribute("data-id");
+              openProjectModal(id);
+            }
+          });
+        });
+
+        if (modalCloseBtn) {
+          modalCloseBtn.addEventListener("click", closeProjectModal);
+        }
+
+        // Close on backdrop click
+        if (projectModal) {
+          projectModal.addEventListener("click", (e) => {
+            if (e.target === projectModal) {
+              closeProjectModal();
+            }
+          });
+        }
+
+        // --- Copy Email to Clipboard ---
+        const copyEmailBtn = document.getElementById("copy-email-btn");
+        const toast = document.getElementById("toast");
+
+        if (copyEmailBtn && toast) {
+          copyEmailBtn.addEventListener("click", () => {
+            const email = "amara@amaraeze.design";
+            navigator.clipboard
+              .writeText(email)
+              .then(() => {
+                toast.classList.add("show");
+                setTimeout(() => {
+                  toast.classList.remove("show");
+                }, 3000);
+              })
+              .catch(() => {
+                toast.textContent = "amara@amaraeze.design";
+                toast.classList.add("show");
+                setTimeout(() => toast.classList.remove("show"), 3000);
+              });
+          });
+        }
+
+        // --- Commission Inquiry Form Handler ---
+        const inquiryForm = document.getElementById("inquiry-form");
+        const formError = document.getElementById("form-error");
+        const successModal = document.getElementById("success-modal");
+        const successCloseBtn = document.getElementById("success-close-btn");
+
+        if (inquiryForm) {
+          inquiryForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const name = document.getElementById("client-name").value.trim();
+            const email = document.getElementById("client-email").value.trim();
+            const overview = document
+              .getElementById("project-overview")
+              .value.trim();
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!name || !email || !overview || !emailRegex.test(email)) {
+              if (formError) formError.style.display = "block";
+              return;
+            }
+
+            if (formError) formError.style.display = "none";
+
+            // Show success modal
+            if (successModal) {
+              successModal.classList.add("open");
+              document.body.style.overflow = "hidden";
+            }
+
+            inquiryForm.reset();
+          });
+        }
+
+        if (successCloseBtn && successModal) {
+          successCloseBtn.addEventListener("click", () => {
+            successModal.classList.remove("open");
+            document.body.style.overflow = "";
+          });
+          successModal.addEventListener("click", (e) => {
+            if (e.target === successModal) {
+              successModal.classList.remove("open");
+              document.body.style.overflow = "";
+            }
+          });
+        }
+
+        // Global Esc Key Listener
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            if (projectModal && projectModal.classList.contains("open")) {
+              closeProjectModal();
+            }
+            if (successModal && successModal.classList.contains("open")) {
+              successModal.classList.remove("open");
+              document.body.style.overflow = "";
+            }
+          }
+        });
+
+        // --- Active Navigation Link Scrollspy ---
+        const sections = document.querySelectorAll("main > section");
+        const navLinks = document.querySelectorAll(".desktop-nav .nav-link");
+
+        if (
+          "IntersectionObserver" in window &&
+          sections.length &&
+          navLinks.length
+        ) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  const id = entry.target.getAttribute("id");
+                  navLinks.forEach((link) => {
+                    const href = link.getAttribute("href");
+                    if (href === `#${id}`) {
+                      link.classList.add("active");
+                    } else {
+                      link.classList.remove("active");
+                    }
+                  });
+                }
+              });
+            },
+            {
+              root: null,
+              rootMargin: "-20% 0px -60% 0px",
+              threshold: 0.1,
+            },
+          );
+
+          sections.forEach((sec) => observer.observe(sec));
+        }
+      })();
+    </script>
+  </body>
+</html>
